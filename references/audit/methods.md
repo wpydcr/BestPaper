@@ -104,11 +104,8 @@ This reference supplies methods, not a second execution workflow. Use writing-gu
   roles remain the most effective path for **factual, arithmetic, referential and
   delivery-surface** defects and are neither weakened nor retired here; only their "add a
   qualification / disclosure / explanation" output is constrained.
-- **When external opinion is fed in, use an independent check that first reads the
-  relevant source without the opinion's proposed diagnosis.** Then assess every
-  received opinion against the source, evidence and reasoning. Failure to rediscover
-  an issue does not refute it; a second agent's agreement does not prove it.
-  Record the independent basis for adoption or rejection.
+- **Use independent review for substantive proposals and consequential disputes**, under D01's scope in [routing.md](routing.md). The reviewer first reads the relevant source without inheriting the proposed diagnosis, then checks the specific issue and candidate. D02 still considers every received opinion; a directly verifiable non-issue or inconsequential preference does not require another independent investigation. Failure to rediscover a material issue does not refute it, and agreement does not prove it. Record the evidence and actual scope.
+
 - **Checking external opinion does not stop at right-or-wrong**: where an external
   opinion points in the wrong direction is often exactly where a more serious real
   problem sits.
@@ -164,8 +161,7 @@ do not invent a commit or initialize a repository just to satisfy these examples
   *fix*.** Rejecting only the fix may be recorded only as "this fix is unusable";
   recording it as "there is no problem here" manufactures an exempt zone.
 - **A rejection rationale is itself a falsifiable factual assertion**: verify it before
-  writing it down (often one grep falsifies it), and re-check next round whether it
-  still holds.
+  writing it down (often one grep falsifies it), and re-check it when its evidence, affected text, premises or a concrete new interpretation changes. A new round alone does not invalidate it.
 - **A positional or formal proxy may narrow what to check; it may never issue the verdict.**
   Proxies: sitting inside some environment, a literal-string grep returning zero, frequency
   above N, which section it is in, a word count over N, the instruction obeyed to the
@@ -206,9 +202,9 @@ Separate two decisions: whether the criticism is justified by the actual paper, 
 
 Use the representation required by the task, including rendered pages, accessible text or machine-readable material when relevant. If only an extraction pipeline is broken and the intended artifact is sound, repair the pipeline for review instead of distorting the scientific notation. Report which input and judgment remain unverified.
 
-### 6.2 Value ruling: valid ≠ worth changing (the evaluation step's third ruling)
+### 6.2 Decide whether work is warranted before dispatch or expansion
 
-Check four questions before spending effort on a valid proposed fix:
+Apply the mainline selection in [routing.md](routing.md) before dispatching, investigating further, or writing a fix. Read every received opinion, but use the depth needed to decide its actual impact. For a supported candidate, check:
 
 1. Does it change a concrete reader judgment or prevent a substantive error, rather than merely tune wording?
 2. Does its benefit justify the added work or explanatory burden?
@@ -301,27 +297,15 @@ this assertion phrased elsewhere" first often finds the correct version already 
 degrading the fix to a zero-cost alignment. This matters most when an external reviewer
 calls a sentence "too strong" or "unclear": **neither the location nor the diagnosis is automatically correct**. Check both against the actual passage before adopting a repair.
 
-## 9. Strict separation of page budget from correctness/improvement
+## 9. Correctness, reader benefit and limited space
 
-- **No tolerating a bug for the page budget**: the audit step must not downgrade or defer
-  a report because "the fix adds words"; the evaluation step must not treat "net
-  addition" as grounds for overturning. The page budget settles separately, after the
-  revision step: fix it correctly first, then reclaim space from unrelated places.
-- **No refusing an improvement for the page budget**: no suggestion may be withheld
-  because "it adds words" or "we are already over". The only permitted response is to
-  honestly annotate the word delta (characters for Chinese manuscripts, see §2). Write
-  the page budget into an agent's instructions and the agent will use it as a screening
-  gate: **the suggestions it blocks never appear in the output and cannot be recovered
-  by asking**.
-- **No padding to reach a page count**: being under the target is not a defect, and
-  content written to reach a word count is necessarily filler, another entrance for
-  over-defensiveness. An under-length paper is reported, not acted on.
-- **Measure pages when the current layout or delivery task needs the measurement**,
-  using the real submission rules and the relevant rendered version. Repeating a
-  build for every content pass is not an acceptance condition. A content audit does
-  not silently become a compression task; when compression is authorized, preserve
-  meaning and assess deletion cost under writing-rules chapter 6. Execution scope is maintained in [routing.md](routing.md); no separate delivery-to-audit return loop is imposed here.
-  Never add content merely to fill an observed shortfall.
+A page limit does not make a false claim true. Identify actual errors and necessary evidence even when repair costs space; choose a correct, authorized repair, which may be a concise correction, removal of an unsupported nonessential claim, or a justified reorganization. Do not hide counterevidence or silently change the study to fit.
+
+Optional improvements are selected by net benefit to the paper. More detail, traceability or theoretical checkability is not automatically worth adding. Show the concrete reader judgment affected and compare the gain with space, attention and implementation cost before writing. It is permissible to retain correct, effective text rather than add a marginal improvement and remove more valuable material elsewhere.
+
+The paper needs sufficient evidence and method information to evaluate its claims, with legitimate supplementary material at the appropriate level. It need not narrate every command, intermediate artifact or development attempt. Do not create exhaustive acceptance documentation unless that is an explicit part of the research or submission task.
+
+An unused part of the page budget is not a defect. Add supported explanation when it independently serves the research argument; otherwise leave it unused. Measure actual layout when relevant, not as a reason to repeat content audits.
 
 ## 10. Table criteria
 
@@ -335,23 +319,9 @@ calls a sentence "too strong" or "unclear": **neither the location nor the diagn
 
 - **Adding a block header appends an implicit subject to every subject-less cell below
   it**; re-run the subject test cell by cell before adding one.
-- **A table finding must trigger a full-table family sweep on the spot**: when the finding
-  lands on a cell / column / row pattern, the sweep attaches to the finding and not to the
-  fix, so a finding ruled not worth doing is swept before it is closed. The revision
-  instruction, where there is one, must also require
-  "check **every** cell in the same column (row, pattern) against the same criterion,
-  cell by cell", and the close-out report must state how many cells were swept, how many
-  passed, how many failed. Fixing only the reported cell = not done. This is family
-  *location*, not family *modification* (the latter hits the authorization boundary in
-  §4). Every located cell still goes through evaluation individually.
-  **Why tables need this more than prose does**: cells are independent and do not
-  reference each other, so **no adjacent text can ever expose another cell's error**.
-  Prose errors often self-expose through contextual conflict, table errors never do. In
-  one measured case the same column of the same table failed four times across rounds more
-  than twenty apart, because each round fixed only the reported cell. The typical failure
-  form is **a cell filled with something adjacent to but different from what the header
-  asks for** (the header asks for A; the cell holds B, which sat in the same source
-  paragraph and was copied over in passing).
+- **A supported systematic table error calls for a relevant family check.** If a mistaken unit, category or header may affect other cells, inspect the cells that share that rule, not just the first reported one. A stylistic preference or a refuted complaint does not automatically authorize a full-table audit. Decide each resulting change from evidence and reader impact; counts document coverage but do not establish necessity or quality.
+
+The purpose is to prevent a verified mistake from recurring across the same data or encoding. A suspicion with a concrete route to a consequential error deserves a bounded check; a generic demand to make the table more exhaustive does not.
 
 ## 11. Content-check functions and pipeline parallelism
 
@@ -404,10 +374,7 @@ An ordinary suspended task can resume when its inputs and premises remain valid.
 
 ## 13. Seams and engineering details
 
-- **Rewrite seam gate** (the dual of the deletion gate): after each round's edits, grep
-  both the old and the new form of every word swapped this round, across all their other
-  occurrences, and confirm no stale binding, duplicate attribution or forward reference
-  is left behind. This is the actual mechanism behind "independently optimized chapters
+- **Rewrite dependency check**: when a replacement changes a term, binding, claim or shared expression, locate its affected uses and check for stale references, duplicate attribution or forward-comprehension failures. A local cosmetic word change does not automatically trigger a whole-paper search for both forms. This is the actual mechanism behind "independently optimized chapters
   drift apart".
 - **Intra-sentence seam gate** (the in-sentence dual of the rewrite seam gate): when
   rewriting **part** of a sentence, the rest of the same sentence must be re-checked. The
@@ -446,16 +413,8 @@ scope.
   chase a data source arises, ask first: is this serving the reader, or serving the
   feeling of "I verified it"?
 - **Keep two verification states separate**: an internally consistent chain of definitions may support a formal conclusion, but it cannot establish external events, dataset contents or execution records. If source records are unavailable, mark those factual checks unverified and state the effect on the claim. When records are available, compare the actual assertions with them; self-consistency is not a substitute.
-- **The delivery-surface citation chain must be checked in both directions**: check both
-  "does the artifact contain what the paper names" (missing = false statement, must fix)
-  and "does the paper mention what the artifact contains". **A reverse-direction gap
-  produces no false statement**, so every "claim vs. artifact" check is immune to it; its
-  damage is different: **wasted delivery** (the reader opens material the paper never
-  mentions and cannot place it in the evidence chain), and it makes two findings collide
-  in the same place: "the named ones count correctly" and "there is a problem here" are
-  each half right, and the next round easily uses the former as a shield to suppress the
-  latter (the exempt-zone form of §5). **Only running both directions counts as checked.**
-  Choose the reference location where the reader needs the material. A body claim may point directly to a supplement; an appendix may carry detailed navigation. Existing appendix and supplement files do not impose a mandatory body-to-appendix-to-supplement chain.
+- **Check the delivery claims and useful navigation.** Verify that material explicitly promised by the paper exists and matches that promise. In the reverse direction, ensure that evidence or methods needed by the reader have a discoverable role; not every intermediate or auxiliary file requires a manuscript citation. Internal execution records are not automatically a reader-facing deliverable. Repair the concrete missing connection at the appropriate body, appendix or supplementary location instead of building an exhaustive cross-index for its own sake.
+
 - **Archived data is a historical snapshot, not current truth**: writing back from an
   archive requires overlaying every ruling made after the archive, and re-checking each
   borderline instance against the rules.
