@@ -1,16 +1,12 @@
-# Writing Rules (Best Paper shared reference)
+# Argument, evidence and revision methods
 
-Hard rules for writing, revising, compressing, and organizing experiments across a whole manuscript. This file is the single source of truth for every rule numbered here. Other files cite the numbers and must not restate the content; conversely, this file does not copy rules that belong elsewhere.
+This is a method reference. Normative writing requirements are owned by [writing-guide.md](../writing-guide.md); execution scope, routing and reuse are owned by [audit/routing.md](../audit/routing.md). Current user instructions take precedence. The legacy section numbers below remain navigation aids, not a second policy hierarchy.
 
-Rules owned by other files: abstract, introduction, and contribution bullets in `abstract-intro.md`; figures, tables, and captions in `figures.md`; the de-AI checklist, final-pass polishing, and terminology unification in `polish.md`; audit method and process gates in `audit-method.md`. Chapter 7 of this file keeps a pointer only; chapter 4 keeps the title rules and points away for the rest.
+Use [entry methods](entry.md) for the title/abstract/introduction, [figures](figures.md) for visual design, [polish](polish.md) for sentence and terminology methods, and [audit methods](../audit/methods.md) for verification. Load only relevant sections.
 
-## H.1 Author-wide hard rule: no em-dash anywhere in the manuscript
+## H.1 Character-level check for the inherited em-dash preference
 
-The ban targets the em-dash exactly: Unicode `—` (U+2014) and its LaTeX source form `---`.
-
-**Not covered by the ban, and never to be deleted or altered in the name of enforcing it**: the hyphen `-`, and LaTeX `--` together with its rendered en-dash `–` (U+2013). The latter is normal syntax for numeric ranges (e.g. `2--6\%`), page ranges, year ranges, and compound ranges. Verify character by character, never by "it looks like a horizontal line".
-
-This rule is numbered H.1; audit findings cite that number under A.10.
+The active preference is maintained in writing-guide G25. Check the exact em-dash character `—` (U+2014) and LaTeX `---`. Do not confuse it with hyphen `-`, en-dash `–` (U+2013), or LaTeX `--` used for ranges. A visual resemblance is not a sufficient match.
 
 ## Preamble G: the reader's stepwise understanding has the highest priority
 
@@ -86,150 +82,36 @@ When rules conflict, adjudicate in this order:
 
 Do not pile up conditions the reader does not yet need in the name of rigor, and do not delete a qualifier that changes the conclusion in the name of readability. Real clarity means the necessary condition appears, in an understandable form, at the moment the reader needs it.
 
-## Audit clauses A: non-negotiable
+## A. Evidence for an audit finding
 
-This section is the enforcement protocol for the whole file. Except where content is explicitly marked RECOMMENDED or non-mandatory, every rule here is a hard constraint. The auditor may only check whether a rule is satisfied. The auditor has no authority to renegotiate a rule, add balancing conditions, or lower the strength of enforcement to fit personal writing preference.
+Execution, independence and result states are defined in the audit routing. The former A.1/A.2/A.7/A.8/A.11–A.15 enforcement clauses are replaced by that shared workflow; they do not create separate full-paper audits.
 
-### A.1 No softening of rules
+### A.3–A.4 Necessary scope versus defensive padding
 
-The auditor must not perform any of these conversions:
+For a proposed qualifier or disclaimer, identify the claim, evidence interpretation, method requirement or meaningful reader judgment it changes. Keep necessary conditions where that reader needs them. A previous check is not a lifetime guarantee: changed premises and new evidence reopen affected judgments. Hypothetical reviewer anxiety alone does not justify padding.
 
-1. Reading "must" as "recommended"
-2. Reading "must not", "cannot", or "prohibited" as "usually not advisable"
-3. Reading "delete" as "could be kept"
-4. Reading "keep only" as "may also be added for completeness"
-5. Reading "do not raise this" as "still discuss it briefly to appear balanced"
-6. Reading "organize around strengths" as "present strengths and weaknesses in full and equally"
-7. Reading "do not concede defeat" as "honestly emphasize every result where we do not win"
-8. Reading "must not answer questions the paper never raised" as "better to pre-empt likely reviewer comments"
-9. Reading "structural problems must be rebuilt" as "one transition sentence may be enough"
+### A.5 Check the paper's actual obligations
 
-Any such conversion makes the audit itself non-compliant.
+Use the claims actually made, evidence actually used, capabilities actually asserted and verified submission requirements. Do not invent a stronger claim or a new research objective merely to criticize its absence. A real counterexample, unsupported statement or missing necessary method information remains actionable even if no old rule named it.
 
-### A.2 Only explicitly marked rules may be relaxed
+### A.6 Evidence balance is not equal positive and negative word counts
 
-Only clauses carrying a RECOMMENDED or non-mandatory marker may be adopted or not depending on paper type and target venue. The single other route is 0.5, and it is not discretion. What this clause forbids is an auditor relaxing a rule on judgment alone, which no amount of corpus evidence turns into.
+Foreground supported strengths. Evidence that changes the central judgment must remain accurately represented; irrelevant losses do not earn space just to create symmetry. Use claim–evidence alignment rather than matching counts of praise and caveats.
 
-In the body text, "must", "must not", "cannot", "prohibited", "keep only", "never", and "no skipping levels" all constitute hard gates.
+### A.9 Put necessary scope conditions where the claim needs them
 
-"Should" and "prefer" state a mandatory direction of execution, not permission to skip. The auditor may choose among compliant implementations; the auditor may not use these words to cancel the rule.
+Keep conditions that determine truth, scope or interpretation, expressed accurately
+and positively at the relevant claim. An abstract, caption or other independently
+read statement may need the same condition even if the body already supplies it.
 
-### A.3 The academic floor must not be reused as a defense argument
+Do not repeat a limitation mechanically across sections. At each occurrence, ask
+what the reader currently knows and whether the condition changes this judgment.
+Use a citation or consistent wording when that suffices; do not rely on later text
+to repair a false or overbroad first reading.
 
-Truth of conclusions, meaning of evidence, and reproducibility of method are guaranteed once, by the preamble. Having completed those three checks, the auditor must not again demand added defensive text on grounds of "rigor", "completeness", "balance", "reviewer risk", or "avoiding misunderstanding".
+### A.10 Make findings inspectable
 
-Any finding that asks to add or keep a qualifier, weakness, negation, disclaimer, or counter-argument must state explicitly:
-
-1. Which core proposition's truth value it changes
-2. Which piece of evidence's meaning it changes
-3. Which method step's reproducibility it affects
-
-If none of the three can be named, the finding is void and the content must not enter the manuscript.
-
-### A.4 Defensive content is deleted by default
-
-Defensive content enjoys no presumption of retention. The burden of proof lies with whoever wants to keep or add it.
-
-If the auditor cannot show that a passage directly determines the truth of a conclusion, the interpretation of evidence, the reproducibility of the method, or the scope of applicability of a claim, that passage must be deleted, moved later, or rewritten as a positive statement of capability.
-
-"A reviewer might ask", "this is more complete", "this looks objective", "just in case of misreading", and "better to mention it" are not reasons to keep it.
-
-### A.5 No manufacturing of audit problems
-
-The auditor must not require the paper to answer a challenge merely because one is theoretically conceivable.
-
-Only claims the text actually makes, work the evidence actually carries, capabilities the method actually declares, and content the target venue explicitly requires fall within audit scope.
-
-The auditor must not:
-
-1. Invent a stronger claim the paper never made
-2. Require the paper to prove it did not make that stronger claim
-3. Add a new comparison dimension
-4. Add a new evaluation objective
-5. Add a new experimental obligation
-6. Add a new stakeholder question
-7. Add an imagined opponent and require the text to pre-empt it
-
-Findings that violate this clause are deleted and never enter the revision list.
-
-### A.6 No demands for artificial balance
-
-A paper has no obligation to give equal display to strengths and weaknesses, positive and negative results, or supporting and opposing evidence.
-
-The auditor must not invoke "balance", "comprehensiveness", "objectivity", or "avoiding bias" to require:
-
-1. Adding negative results that do not affect the core conclusion
-2. Emphasizing dimensions where this work does not lead
-3. Listing tasks this work did not complete
-4. Pairing every positive claim with a negative note
-5. Attaching a self-weakening limitation to every contribution
-
-Objectivity is guaranteed by strict alignment among claims, evidence, and conclusions, not by equal counts of positive and negative content.
-
-### A.7 The scope of comparison is set by the core claims
-
-Audit scope is fixed by A.5: only the claims the text actually makes. Requiring a metric, dataset, baseline, scenario, or objective the core claims do not cover is barred by A.5 item 3 and A.6 item 2; treating "does not lead across the board" as a defect is barred by A.5 items 1 and 2, since it invents the claim first. 1.4 owns the author-side rule that the narrative is not built on a contest this work loses.
-
-### A.8 Unfavorable material does not automatically earn a place in the main text
-
-The test is A.4's, applied to unfavorable material rather than to defensive phrasing: the burden lies with whoever wants to keep it, and A.4 already rejects "this looks objective" and "a reviewer might ask" as reasons. 1.1 keeps what is not a strength out of the main line, 1.2 bars the progress report, A.6 blocks the balance argument, and 1.13 gives the priority order for the material once it is out.
-
-### A.9 Scope of applicability is stated once, in one place
-
-A scope condition that determines the truth of a conclusion must be kept, but it must be stated in one place, accurately, and positively.
-
-The auditor must not require the same limitation to reappear in the abstract, introduction, theory, experiments, discussion, and conclusion. Except where a specific section carries an independent retrieval role, other locations stay aligned by accurate citation or consistent wording.
-
-Repeating a limitation adds no rigor; it adds self-weakening and reader load.
-
-### A.10 Every finding carries the burden of proof
-
-Each valid audit finding must contain all four of:
-
-1. The specific rule violated
-2. The specific text location of the problem
-3. The direct consequence for reader understanding or for the core argument
-4. The minimal sufficient repair target
-
-A finding missing any one of these must not enter the revision list.
-
-"Could be more comprehensive", "suggest adding discussion", "might raise doubts", "the wording could be improved", and "better to be more cautious" are all void findings.
-
-### A.11 The audit adds no evaluation criteria
-
-This file is a closed audit standard. The auditor must not add personal preference, generic writing templates, conventions from other papers, or an imagined reviewer's taste to the mandatory standard.
-
-External requirements enter the audit only when the target venue states them explicitly, and their source must be labeled; they must never be disguised as rules of this file.
-
-### A.12 Structural feedback gets a structural fix
-
-The trigger, the point the rebuild starts from, and the local patch that does not count as a fix are all G.6's; the connective and the vague transition are also G.4's, the later definition and the summary paragraph G.2's, and the shortened sentence and the reader who guesses from later text G.7's. A.1 item 9 bars the auditor from accepting a transition sentence in place of the rebuild, and the forward cold read of G.7 is the test of whether the break is gone.
-
-### A.13 Audit verdicts must be hard verdicts
-
-Each hard rule gets exactly one of:
-
-1. `PASS`: the rule is satisfied
-2. `FAIL`: the rule is not satisfied and must be fixed
-
-Vague states such as "mostly satisfied", "acceptable in principle", "not a big deal", "could be kept", or "depends" must not be used to bypass a hard gate.
-
-### A.14 Conflicts are adjudicated upward only
-
-The order is set by G.8 and the goals that yield to it by the preamble to G; applying that order is what adjudicating upward means. The opening of section A already bars the auditor from putting balancing conditions in its place.
-
-### A.15 Final veto clause
-
-The audit fails outright if any of these occurs. Each item names the rule that owns it and adds no requirement of its own.
-
-1. Any defense barred by A.5 and by 2.3 item 1 is added
-2. Any negative content barred by A.6 item 1 is added for the sake of balance
-3. Any dimension kept out of scope by A.6 item 2 and 1.4 is promoted to a core evaluation item
-4. Any imagined reviewer comment barred by A.5 item 7 and A.11 is used to enlarge the paper's burden of proof
-5. Any repetition barred by A.9 is used in place of claim-evidence alignment
-6. Any local patch rejected by G.6 is used on a broken path of understanding
-7. Any proxy named in G.7 is used in place of forward readability
-8. Any hard rule in this file is read as an optional suggestion, against A.1 and A.2
+Return the actual text location, the applicable rule or independently established problem, its consequence for the argument or reader, and a concrete repair target. Generic requests to be more comprehensive or cautious do not establish a defect. Missing evidence is reported as missing, not as PASS or an invented finding.
 
 ## 0. Meta-rules: ordering and precedence
 
@@ -270,44 +152,13 @@ If any one is unanswerable, fix the order of information and the definitions fir
 
 **Counterintuitiveness is not something the author declares, and tension is not manufactured by sentence structure.** It exists only once the reader understands two facts, sees the surface conflict between them, and knows why that conflict matters for the conclusion. A "hook" that skips these three steps is a slogan.
 
-### 0.5 Field evidence outranks generalized guidance
+### 0.5 Use field evidence without turning observations into requirements
 
-When an observation from the target venue's own accepted papers contradicts a
-generalized clause in this rule library, **the observation wins**. The library's
-generalized clauses are derived from principle and from one author's experience;
-the venue's accepted papers are what the venue actually rewarded. Record the
-conflict and the ruling in `AUDIT-LOG.md` so later rounds do not re-litigate it.
+Compare work with genuinely comparable papers: record venue, years, paper type, sample selection, count and the actual excerpts or measurements behind an observation. Impressions and unspecified examples are not evidence.
 
-Two conditions on the observation, both required:
+Such observations can revise generic advice about organization or phrasing. They do not override current author instructions, verified submission rules, mathematical correctness or evidential honesty. Explain the reader benefit and the scope of any adaptation in the project record; new evidence may still change that decision.
 
-1. **It carries its sampling frame**: which venue, which years, how many papers,
-   which column of which tabulation. An impression ("past papers all seem to do
-   X") is not evidence and outranks nothing. This is why Setup requires the
-   corpus statistics to record their frame.
-2. **The clause it overrides is generalized guidance.** Generalized guidance is
-   this library's advice on **what a paper should look like**: shape, phrasing,
-   arrangement, genre convention. It is not the library's rules on **what counts
-   as a problem and how a verdict is reached**. Field evidence never overrides
-   any of the following:
-   - The venue's own mandatory requirements (page limits, anonymity, template).
-   - Academic correctness and evidential honesty: truth of conclusions, meaning
-     of evidence, reproducibility of method. A venue accepting a practice does
-     not make that practice sound.
-   - **The preamble and G.1 to G.8.** A stranger's single-pass comprehension is
-     the standard the venue's readers are also subject to. Papers that were
-     accepted despite a broken path of understanding are evidence about the
-     review process, not licence to break it.
-   - **A.1 to A.15.** These govern how the audit itself behaves, not how the
-     paper looks. Nothing observed in published papers can tell you how to run
-     an audit, and A.15.8 stays in force: reading any hard rule as an optional
-     suggestion fails the audit outright.
-   - Author-wide hard rules (H.1, and the hard rules carried in
-     `abstract-intro.md`, `polish.md` and `figures.md`). These are the author's
-     standing decisions across projects. Field evidence showing the venue
-     tolerates otherwise is expected and does not loosen them.
-
-Acceptance proves a practice is permissible at that venue. It never proves the
-practice is optimal, and never proves it caused acceptance.
+Acceptance shows that a practice occurred in accepted work. It does not establish that the practice was optimal or caused acceptance.
 
 ## 1. The launch-talk principle
 
@@ -315,25 +166,38 @@ Treat the paper as an academic launch talk, not a project report, an experiment 
 
 The task is not to present every aspect of the work evenly. It is to identify the value most worth publishing and to build the most favorable, most complete, and most convincing narrative around that value.
 
-### 1.1 Organize the paper around strengths only
+### 1.1 Organize the paper around its supported strengths
 
-Look first for what this work genuinely leads in, is unique in, or is irreplaceable in: a new capability, a new problem, a new mechanism, a new perspective, wider applicability, lower cost, higher efficiency, better scalability, a more meaningful trade-off. Content that does not amount to a strength must not become the main line.
+Look first for what this work adds: a new capability, problem, mechanism, perspective,
+wider applicability, lower cost, or a meaningful trade-off. Make that value visible.
+Keep the conditions and unfavorable evidence that change the interpretation of a
+core claim; they belong in the argument even when they are not strengths.
 
 ### 1.2 Do not write a progress report
 
 Do not organize as "what we did first, what we tried next, which attempts failed". Keep only the logic that finally holds: why the problem matters, why existing methods fall short, what new solution this work provides, and how the evidence supports it.
 
-### 1.3 Do not volunteer negative assessments
+### 1.3 State unfavorable results at their actual scope
 
-Do not summarize for the reviewer where this work is weak, where it loses, or where it falls behind. Do not use self-weakening phrasing such as "unfortunately", "merely", "still lags", "limited effect", or "a serious shortcoming". When a result is not a strength, do not distill it into a conclusion, and never help the reader escalate a local observation into a verdict on the whole method.
+Do not turn a local limitation into a verdict that the whole work lacks value.
+Remove unsupported self-deprecation and unnecessary apologies. State a decrease,
+failure or limitation directly when it changes a core judgment, using the actual
+comparison, conditions and evidence. Negative wording is not itself a defect.
 
-### 1.4 Do not enter a contest you lose
+### 1.4 Choose comparisons from the research question
 
-If this work does not lead on some metric, do not build the narrative on that metric. Re-select the task definition, evaluation dimension, application scenario, constraint set, or basis of comparison that better reflects this work's value. Do not fight for a championship that is not yours; make clear that this work wins a different and more meaningful contest.
+Use the task, metric, baseline and setting that test the paper's actual claims.
+Explain a different objective or meaningful trade-off when the evidence supports it.
+Do not change the comparison merely because the work loses, or omit a relevant
+result to create a favorable impression.
 
-### 1.5 Do not concede defeat; rewrite the comparison logic
+### 1.5 Align the claim with both favorable and unfavorable evidence
 
-Facing a result where the work does not lead, do not use direct failure phrasing such as "we are weaker than", "performance drops", or "fails to surpass". Judge in order: must this result be discussed at all; can it be explained by different objectives, constraints, or applicable scenarios; does it reflect a reasonable trade-off; can the claim be narrowed to avoid an unnecessary head-on comparison; should the main line be adjusted so that this result no longer carries the burden of proving the core contribution?
+Ask what the result establishes and which claim it supports or limits. Narrow or
+reframe a claim when the evidence requires it, and explain the changed scope.
+A trade-off is valid only when supported; it is not a replacement label for an
+inconvenient result. Remove material with no argumentative role, but retain evidence
+needed to evaluate the core contribution.
 
 ### 1.6 Strengths must be stated explicitly
 
@@ -373,15 +237,12 @@ The conclusion is not a retrial of the paper. It makes the reader remember what 
 
 ### 1.13 Default decision rule
 
-For any unfavorable material, handle it in this priority order:
-
-1. Delete content unrelated to the core claims
-2. Narrow the claim to avoid a pointless head-on comparison
-3. Switch to an evaluation dimension that better shows the value
-4. Explain the result as a difference in objectives or a reasonable trade-off
-5. Reorganize the experiments so the strength becomes the visual and narrative center
-6. Redefine the paper's story
-7. Only when it is unavoidable and genuinely affects the core conclusion, give the necessary statement
+For any unfavorable material, first decide whether it changes the truth, scope,
+evidence interpretation or evaluation of a core claim. If it does, keep it where
+the reader needs it and align the claim to it. If it does not, judge its independent
+reader benefit before retaining, moving or deleting it. Do not add artificial
+balance or irrelevant defensive detail; do not change metrics or scenarios merely
+to make the work appear stronger.
 
 ### 1.14 The end goal
 
@@ -389,7 +250,7 @@ Every chapter, paragraph, table, and sentence works toward one thing:
 
 > Convince the reader that this work solves a problem worth solving, proposes a method worth attention, and already has clear enough evidence for its value.
 
-Do not present evenly, do not volunteer weakness, do not write an experiment diary, do not attack yourself on the reviewer's behalf.
+Do not add artificial balance, irrelevant self-deprecation or an experiment diary. Give readers the evidence and conditions needed to evaluate the contribution.
 
 ## 2. Defensive hedging
 
@@ -448,7 +309,7 @@ Ask five questions per paragraph:
 ### 2.5 Whole-manuscript final check
 
 1. Do the abstract, introduction, main results, and conclusion speak about the same central contribution?
-2. Is each core claim qualified in exactly one place, with other locations kept consistent by citation?
+2. Does each core claim include the conditions its reader needs, without repetitive qualifications that add no current meaning?
 3. Do the Limitations state the natural boundaries of the model and the evidence, rather than repeatedly disparaging results already reported?
 4. After reading, is what the reader can most easily restate "what the paper found" or "what the paper did not do"?
 
@@ -460,21 +321,26 @@ If it is the latter, over-defense is still present.
 
 **Every chapter can be stated in one sentence: the problem the reader enters with, and the conclusion they leave with.** A chapter that resists that sentence has no single job, so the type-specific duties below have nothing to attach to. G.4 asks this of a paragraph; at chapter scale it is the same test.
 
-**A derivation chapter must deliver one uninterrupted derivation.** External material, literature evidence, and real-world calibration of parameters do not belong there. Placing them in a derivation chapter has two effects at once: the derivation is fragmented, and the evidence chapter is drained. (Derivation and evidence chapters appear in concrete papers as theory versus empirical chapters, method versus results chapters, and so on.)
+**Derivation and evidence must form a readable argument.** A separate derivation
+chapter keeps its reasoning traceable; a separate evidence chapter settles the
+objects and judgments assigned to it. Separation is one arrangement, not a ban on
+placing evidence beside the reasoning it supports. Choose the layout from the
+reader's task; do not move content solely to make a chapter look full.
 
-**An evidence chapter must deliver a self-contained set of conclusions.** After reading it, the reader knows independently the status of **every object this chapter is responsible for settling** (the undetermined quantities, premises, parameters, or open judgments left by the derivation chapter), without going back to the derivation chapter to fill gaps.
+Check narrative pointing first when chapter weight hides a result. Split, merge or reorder chapters only when their actual argument duties and the reader path justify it; neither splitting nor avoiding a split is a universal remedy.
 
-**The two kinds of material must not be moved into each other.** If the evidence chapter looks thin or badly structured, there are exactly two correct fixes: pull back the evidence material scattered into the derivation chapter, or re-divide the sections inside the chapter so they correspond one to one with those undetermined objects. **Never move derivation into the evidence chapter, and never fold evidence into the derivation chapter.**
-
-**Chapter-weight problems are solved by narrative pointing, not by splitting chapters.** If the most valuable result is buried in a mid-document subsection, the fix is to have the introduction point at it as soon as the problem is established and to make it the narrative destination, not to promote it to a top-level chapter and cut the derivation in half.
-
-**A results chapter is organized in argument order, not written as an experiment log in execution order.** The main text keeps only results that support the core narrative; the rest moves to an appendix or supplementary material (applicability: the target venue accepts appendices or supplementary material). A results chapter explains only the method details needed to understand the results; full derivations, training strategies, and implementation details belong to the method chapter. When using benchmark results, say why those comparison targets were chosen and explain the practical use of the performance or insight; when reporting statistical tests, also say what the significance means for the claim.
+**A results chapter is organized in argument order, not execution order.** Keep in
+the body the method details and evidence needed to understand and evaluate its
+claims. Put detailed proofs, supplementary analyses or reproduction material in
+an appendix only when they provide a specific benefit; internal logs and irrelevant
+results remain separate. The body must still stand on its own. Explain why benchmark
+comparisons were chosen and what statistical results mean for the claim.
 
 **A discussion chapter does not repeat the abstract or the results.** It explains the broader theoretical or practical implications, states the natural boundaries of the method and the experiments in one place, and points out the remaining challenges and well-grounded next directions. New results and new core claims must not appear for the first time in the discussion.
 
 ## 4. Title, abstract, and introduction
 
-This chapter covers the title only. All abstract, introduction, and contribution rules live in `abstract-intro.md`. This file does not copy them.
+This chapter covers the title only. All abstract, introduction, and contribution rules live in `entry.md`. This file does not copy them.
 
 ### 4.1 The title must be self-contained
 
@@ -505,16 +371,13 @@ This is where the compression stage most often goes wrong.
 
 ### 5.1 Three questions to answer before deleting
 
-Before deleting any sentence, all three must be answerable:
+Before deleting or moving a sentence, answer:
 
-1. Does it change the truth of a theorem, the definition of an estimand, the interpretation of a piece of evidence, or the reproducibility of the method?
-2. **Is it the only place some symbol, concept, or condition is defined?**
-3. **Is it the only place the paper answers a question raised by a claim the paper itself makes?**
-   Scope is set by A.5: a claim actually in the text, evidence actually presented, a capability
-   actually declared, or something the venue explicitly requires. A question no more than
-   conceivable does not qualify, and under A.4 "a reviewer might ask" is never a reason to keep.
+1. Does it carry a theorem condition, estimand definition, evidence interpretation or necessary method detail?
+2. Is it the only clear introduction of a symbol, concept or condition?
+3. Does it answer a question created by a claim the paper actually makes?
 
-If any answer is yes, it cannot be deleted.
+If a necessary duty would be lost, retain it or transfer it to an equally clear, supported location before deleting the old sentence. A merely conceivable reviewer question does not create a duty.
 
 ### 5.2 A successful compile is not evidence of deletion safety
 
@@ -524,7 +387,7 @@ Typical failure: a sentence that looks redundant with the corollary after it is 
 
 ### 5.3 Demoting a result to a subordinate clause is deletion
 
-Folding a numbered corollary into a clause inside a paragraph keeps the content formally, but the reviewer looking for it among the results will not find it and the scanning reader will skip it. **Anything that answers a foreseeable reviewer challenge must keep the form of a result** and must not be demoted to an incidental remark.
+A significant result can disappear from a scanning reader even when its words survive inside a subordinate clause. Preserve a form and location in which readers can find the result and its role. A foreseeable reviewer challenge alone does not require a numbered result; judge the result’s actual argumentative duty.
 
 ### 5.4 The dual role of Limitations
 
@@ -535,37 +398,40 @@ Conditions in Limitations come in two kinds:
 
 ## 6. Fitting the page budget
 
-> **Applicability**: the target venue sets a hard page or word limit. Journals with no page limit, and theses with a minimum length, do not trigger this chapter. Once triggered, the order inside this chapter is a hard gate.
+> **Applicability**: the target venue sets a hard page or word limit. Journals with no page limit, and theses with a minimum length, do not trigger this chapter. Once triggered, preserve the argument and meet the official limit; the numbered actions below are options, not a mandatory chapter order.
 
-**A page budget must not drive the priority of content decisions.** Follow this order strictly, with no skipping of levels:
+**A page budget must not override correctness or reader understanding.** First remove empty repetition and material with no argumentative role. Rank the remaining actions by the current reader task and deletion cost, not section name. Numbering preserves references to these action types; it does not require exhausting one before another.
 
 1. **Pure restatement**: paragraphs whose proposition is already stated more strongly elsewhere
 2. **Decorative data**: table columns, thresholds, secondary metrics, and auxiliary statistics that carry no argumentative role
 3. **Non-load-bearing extensions**: corollaries or side results whose removal leaves no gap
-4. **The conclusion chapter**: it mostly restates the body, so it compresses at the lowest cost of any chapter
+4. **The conclusion chapter**: remove repeated exposition while preserving the final judgment and its meaning. Length follows its closing task; do not assume the entire chapter is low-cost repetition.
 5. **Related work**: compress it, keeping every citation that a claim in the body leans on
-6. **Branch content of no value to the main storyline**: anything the storyline does not need is deleted or reduced to one sentence, without asking item by item. It comes before figures and tables because content the storyline does not need costs nothing to lose, while a figure is the hardest object in the paper to rebuild. It is also the only level that takes judgment rather than counting, and **deciding what has no value is content work, not layout work**, so this level is executed by a content-audit round rather than by whoever is compressing the layout; the routing is in `SKILL.md`
-7. **Figures and tables, cautiously**: they cost the most per unit area, but they are also the hardest to rebuild and the easiest to break, which is why this level comes after every prose level rather than before them. Work down it in order: shrink the object with the highest unit cost of space, merge panels or columns that share a coordinate system, and only then consider dropping the one with the lowest information density. A table that carries no argumentative load may be dropped outright here. Deleting a whole figure is the last resort of this level, and never applies to one carrying evidence the text does not restate
-8. **Stop here**
+6. **Branch content of no value to the main storyline**: assess its reader duty and dependencies before deleting or rewriting it, within current authorization. **Deciding that content has no value is content work, not layout work**; route that decision through content assessment under `SKILL.md`. All compression actions require judgment about what they remove.
+7. **Figures and tables, cautiously**: compare reader value and space cost. Try a readable change of dimensions or merge compatible panels before deleting useful content; recheck rendered size and caption. An object with no argumentative role may be removed after deletion assessment. Do not remove evidence needed to evaluate a claim or assume prose must always be compressed first.
 
-Truth-relevant content, symbol definitions, and scope declarations **are untouched under any page pressure**. Change a figure, change the basis of comparison, or narrow the claim before touching these.
+Truth-relevant content, symbol definitions, and scope declarations **must remain sufficient under any page pressure**. Improve layout or remove non-load-bearing material first. Narrowing a claim or scope is a substantive decision requiring evidence and authorization; never change the basis of comparison merely to save space.
 
 Compressing space by enumerating disfluent short sentences is prohibited. A paper is reading material and must first be readable fluently.
 
-### 6.1 The target is the top of the budget, not the shortest possible paper
+### 6.1 Meet the limit without chasing length
 
-The page budget has two bounds, the **limit** and the **floor**, both recorded in `AUDIT-LOG.md` in Setup along with the convention by which pages are counted. Overrun and shortfall are not symmetric, because their consequences are not. **Exceeding the limit is a hard failure and risks desk rejection; it is never delivered.** Sitting below the floor wastes room that was available for making the work understood, so it is a signal to investigate, not a failure to repair.
+Record the official page or word limit and its counting convention in the existing
+project state. If comparable accepted papers supply a useful length baseline, record
+its source and scope as an observation, not a mandatory floor. Exceeding an official
+limit prevents submission; being shorter than a corpus baseline does not establish
+a defect or require extra content.
 
 **A shortfall is never closed by adding content**, and whether the body explains enough is an audit question, not a page-count question. Padding, extra defensive text, decorative data, and restated conclusions are barred here by A.4 and A.5. Read the shortfall as a diagnosis instead, in this order:
 
-1. **Did compression overshoot?** Restore load-bearing material cut at levels 1 to 7, most recent cut first. This repairs damage this process did; it is the only action a shortfall authorizes.
+1. **Did compression overshoot?** Restore load-bearing material cut by actions 1 to 7, most recent cut first. This repairs damage this process did; it is the only action a shortfall authorizes.
 2. **Otherwise?** Leave the space unused. A shortfall that survives into delivery is **reported to the author there, not repaired**: at that point every remaining way to fill it is padding.
 
 ### 6.2 Costing a figure
 
 The comparison is not "a new figure versus some pages of text" but "is each figure worth the space it takes".
 
-A figure is not worth keeping if all of its content is already given in full in words in the abstract or introduction. Shrinking the figure with the highest unit cost of space (a full-width figure in a multi-column layout) is the cheapest concession available, and it is tried before any figure is dropped.
+A figure may add relational or perceptual understanding even when prose states the same facts. Compare its reader benefit with its space cost at final rendered size. Choose changes by duty and loss, not by a fixed largest-figure-first rule.
 
 ## 7. Figures and tables
 
@@ -586,4 +452,4 @@ If a group of citations reads like a list, the correct fix is **to state what ea
 3. For any judgment about layout, measure before changing, not change and then explain
 4. Say explicitly which parts cannot be verified, and give the other party a way to verify them
 5. Keep exactly one formal name per concept, and do not dress a simple relation in obscure terminology
-6. **A core concept must be able to enter the existing scholarly conversation.** Established superordinate terms, existing definitions, and moderate packaging are available for naming and framing the paper's central objects, provided nothing substantive is misrepresented: the object, its scope, and the strength of what is claimed about it stay what the evidence makes them. Narrowing a term until it is exact and recognized by nobody is item 5's failure taken from the other side, and the precision it buys does not repay it: a concept no one can place cannot be searched for, compared with neighboring work, or argued against. This is the whole-paper form, binding on the paper's own name for its central object, on chapter and section names, and on how the body frames them; the entrance-specific test is `abstract-intro.md` §2.1, and the title is 4.1.
+6. **A core concept must be able to enter the existing scholarly conversation.** Established superordinate terms, existing definitions, and moderate packaging are available for naming and framing the paper's central objects, provided nothing substantive is misrepresented: the object, its scope, and the strength of what is claimed about it stay what the evidence makes them. Narrowing a term until it is exact and recognized by nobody is item 5's failure taken from the other side, and the precision it buys does not repay it: a concept no one can place cannot be searched for, compared with neighboring work, or argued against. This is the whole-paper form, binding on the paper's own name for its central object, on chapter and section names, and on how the body frames them; the entrance-specific test is `entry.md` §2.1, and the title is 4.1.

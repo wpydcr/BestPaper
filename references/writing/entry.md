@@ -1,59 +1,23 @@
-# Abstract and Introduction (Best Paper shared reference)
+# Title, abstract and introduction methods
 
-This is the sole rulebook for the two entry sections of the manuscript:
-structure, opening, gap formulation, closing loop, contributions, citation
-density, and typesetting.
+Normative requirements are maintained in [writing-guide.md](../writing-guide.md); task selection and verification are maintained in [audit/routing.md](../audit/routing.md). This file supplies entry-specific methods for scope, structure, openings, gaps, closing judgments, contributions and evidence.
 
-**Scope (strict)**: abstract- and introduction-specific rules only.
-Whole-manuscript rules (launch principle, defensive writing, deletion safety,
-page pressure, final checklist) live in `writing-rules.md` and are cited here by
-number only, never copied. Also elsewhere: **title rules in `writing-rules.md`
-§4.1**; figures and tables in `figures.md`; the AI-tell checklist and
-post-freeze polishing in `polish.md`.
+Whole-paper argument and deletion methods are in `argument.md`; visual methods are in `figures.md`; sentence and terminology methods are in `polish.md`. Load the relevant part rather than treating the attachments as competing rulebooks.
 
-Three sources:
+Source A and B refer to earlier analyses of abstract and introduction forms in a selected accepted-paper corpus. They are form observations, not universal requirements or evidence that a style caused acceptance. Source C labels earlier author guidance; it is provenance, not a second authority hierarchy.
 
-- **Source A**: a per-paper empirical analysis of the abstracts of a batch of
-  accepted papers in one genre. **This is form induction, not a hard rule**:
-  acceptance shows that a form can exist, not that it is optimal, still less
-  that it caused acceptance.
-- **Source B**: the same analysis for the introductions of that batch; same
-  status.
-- **Source C**: the abstract- and introduction-specific articles of the numbered
-  hard-rule system, owned by this file and cited by its § numbers. The
-  whole-manuscript article 1.11 lives in `writing-rules.md` and is only cited
-  here. **These articles are hard rules**, judged `PASS`/`FAIL`, and must not be
-  softened.
-
-**Authority**: Source C is a hard gate. Sources A and B supply form references
-only; they may rank priorities among the compliant implementations Source C
-already allows, and must never cancel or relax any article of Source C.
-Conflicts among the three sources are listed in §4, which gives a ruling for
-each.
-
-> **Out of scope: genre, venue, and corpus statistics.** Rules that hold only for
-> one genre (SoK, survey, benchmark study), the target venue's word limits,
-> layout, template and house style, and every count drawn from a past-proceedings
-> corpus (word-count distributions, item-count distributions, per-form paper
-> shares) are deleted here or lifted into genre-independent principles.
-> **Those regularities are produced by each project's Setup (style baseline)
-> from the target venue's actual past papers**; take them from the Setup's
-> output, not from this file.
-
----
-
+Establish venue-specific regularities from actual comparable papers, keep the sampling frame, and follow verified current requirements. Reuse valid project evidence rather than creating a mandatory setup report.
 ## 1. Shared entry principles
 
-### The two global hard rules that apply (cited only; text in `writing-rules.md`)
+### Two complementary entrance diagnostics (methods in `argument.md`)
 
-- **1.11** governs the launch-talk opening of the abstract and the introduction,
+- **1.11** examines the launch-talk opening of the abstract and the introduction,
   including what "like a launch talk" does not mean and the test that catches a
   hook only the author can read.
-- **0.4** governs the entrance test: what a stranger must be able to answer
+- **0.4** examines the entrance test: what a stranger must be able to answer
   before brevity, rhythm, hooks, or counterintuitiveness are discussed at all.
 
-Read both there before judging an opening. This file only ranks priorities among
-the implementations those two allow; it neither restates nor relaxes them.
+Use these methods to test whether the actual opening helps its reader. Active requirements remain in writing-guide; these methods do not create an additional authority hierarchy.
 
 ### The argument spine shared by strong entry sections (Source A)
 
@@ -69,7 +33,7 @@ what judgment that could not be made reliably before.**
 
 ## 2. Abstract
 
-### 2.1 The stranger test (Source C, hard rule)
+### 2.1 The stranger test (method derived from prior guidance)
 
 An abstract does not remind readers who have already read the paper; it helps a
 reader decide whether to keep reading. The stranger here is **a peer at the
@@ -103,7 +67,7 @@ to understand the main findings and judge, on the evidence, why they matter.
 can still derive the paper's importance from the consequences, the analytical
 capability, and the headline result, the abstract holds.
 
-### 2.2 Structure and language (Source C, hard rule)
+### 2.2 Structure and language (method derived from prior guidance)
 
 There is no single fixed abstract template among accepted papers. Common
 orderings, average lengths, and frequent sentence patterns show only that a form
@@ -117,7 +81,7 @@ establish, subject to:
   clinical medicine, and some engineering journals default to structured
   abstracts (Background / Methods / Results / Conclusions), and those fields
   follow their own default rather than the single-paragraph form. Actual length
-  distributions are measured in Setup, not taken from this file.
+  distributions come from relevant project corpus analysis, not from this file.
 - **Zero undefined symbols; preferably zero symbols.** A reader deciding whether
   to continue needs the pain point, the gap, the idea, the conclusion, and the
   value, and no symbols at all. **Exception**: in theory, cryptography, and
@@ -152,9 +116,7 @@ establish, subject to:
   "important insights", or "key factors were revealed".
 - Title and abstract should naturally contain the terms readers actually search
   for, without turning a keyword list into a noun pile.
-- **Setup sentences are normally at most one.** If three or four consecutive
-  opening sentences describe facets of the same thing, merge them; keep a second
-  only when it introduces a new fact that changes the nature of the problem.
+Use only setup that the reader needs to understand the problem and result. Remove repeated preparation; do not impose a universal one-sentence quota.
 - **The abstract must not open on a stakeholder's situation, investment, or need
   alone.** "Practitioners face...", "vendors are investing..." is grant-proposal
   padding when it merely reports a situation; **it is a valid opening if that
@@ -208,9 +170,9 @@ moves of the §1 argument spine.
    of studies, number of instances, coverage. The number's job is to answer "is
    this a real problem worth studying systematically", not to look rigorous.
 2. **Write the gap as a task that cannot be completed** (consistent with the
-   Source C hard rule in §3.4).
+   prior-guidance method in §3.4).
 3. **Express the contribution as a capability**, not "we propose a framework"
-   (the Source C hard rule in §2.2 names the three capabilities to state).
+   (the prior-guidance method in §2.2 names the three capabilities to state).
 4. **Use a headline result to show this is more than a tidy-up.** Restatable
    headline results look like:
    - No single factor independently explains the observed differences.
@@ -221,7 +183,7 @@ moves of the §1 argument spine.
    reader cannot restate the finding. Such abstracts get accepted; they are
    not the target.
 
-### 2.5 Closing the result-to-meaning loop (Source C hard rule; also Source A)
+### 2.5 Closing the result-to-meaning loop (method and source context)
 
 The final "elevation" is not raising the conclusion to a higher abstraction
 level, and not replacing evidence with "advances the field", "lays a
@@ -258,7 +220,7 @@ say "lays the foundation for future research".
 
 The introduction requires a direct source for every externally verifiable fact;
 **that density does not apply to the abstract**. Whether the abstract carries
-citations follows the target venue's past practice, confirmed in Setup. Either
+citations follows verified target-venue requirements and relevant past practice. Either
 way, every external claim in the abstract must be directly supported in the body.
 
 ### 2.7 RECOMMENDED style preferences (non-binding)
@@ -274,26 +236,17 @@ way, every external claim in the abstract must be directly supported in the body
 
 ## 3. Introduction
 
-### 3.1 The three duties of an introduction (Source C, hard rule)
+### 3.1 The three duties of an introduction (method derived from prior guidance)
 
-An introduction is not a longer abstract and not a warehouse for literature and
-technical detail. It must, in order:
+An introduction has three connected duties: establish the research problem and why it matters; explain what the work contributes and what evidence supports it; prepare the reader for the argument that follows. Order these duties according to information dependencies and the reader's current knowledge, not a compulsory paragraph template.
 
-1. **Give the necessary background and establish importance.** Balance broad
-   context against technical detail; keep only the context needed to understand
-   the research problem and the stakes.
-2. **Establish an explicit motivation.** State precisely what existing methods,
-   data, or evidence lack and why that gap blocks the goal. **The motivation
-   must pave the way directly to the research objective; "there is still room
-   for improvement" must not stand in for it.**
-3. **Announce how this paper occupies the gap.** A concise closing paragraph
-   gives the objective, the main method, the key findings, and the impact.
+Show the result and its significance clearly. Put detailed mechanisms and proofs where they can be understood without overloading the entry. A closing paragraph is useful when it adds a needed judgment or orientation, not because every introduction must have the same ending.
 
 **Final check is a four-way alignment**: the importance established by the
 background, the gap named by the motivation, the method actually used, and the
 results reported in the abstract and body must all point at the same problem.
 
-### 3.2 The introduction must open on an evidence chain (Source C, hard rule)
+### 3.2 The introduction must open on an evidence chain (method derived from prior guidance)
 
 Enter from domain facts the target reader already knows and the literature can
 support, not from this paper's own terminology, taxonomy, notation, formal
@@ -330,7 +283,7 @@ imagined scenario, a professional role's viewpoint, a short reversal judgment)
 show only that such writing is possible, not that it beats a direct factual
 entry; when the reader first needs to understand what current practice measures,
 **an abstract counterexample or rhetorical question is the wrong opening**.
-Actual proportions at the target venue are measured in Setup.
+Measure proportions in a relevant target-venue sample when the decision needs them.
 
 ### 3.3 Seven argument types for introduction value (Source B, form induction)
 
@@ -352,7 +305,7 @@ needed" but: **current evaluation looks sound but supports wrong judgments under
 some real conditions; existing research lacks a unified way to detect that; this
 paper supplies it and shows which conclusions it changes.**
 
-### 3.4 Write the gap as a task that cannot be completed (Source C, hard rule)
+### 3.4 Write the gap as a task that cannot be completed (method derived from prior guidance)
 
 `existing work is fragmented`, `a unified understanding is lacking`, `there
 remains room for improvement` (sentence examples [English manuscripts]) describe
@@ -371,6 +324,7 @@ action. Common valid forms:
 6. Cannot identify the common root cause of a class of failures.
 7. Cannot reproduce experiments or determine the boundary of a conclusion.
 
+For a claimed structural gap or a claim that systematization is necessary, apply the following test:
 The gap must then explain **why adding one more isolated experiment would not
 resolve it**. If the root cause is inconsistent definitions, metrics,
 assumptions, baselines, time ranges, or evidence objects, a common analytical
@@ -390,7 +344,7 @@ framework or systematic re-analysis is required. Four general arguments:
 **Reverse gate**: if the root cause is simply a missing experiment, do not
 package an ordinary experimental question as a structural gap.
 
-### 3.5 Evidence and citations in the introduction (Source C, hard rule)
+### 3.5 Evidence and citations in the introduction (method derived from prior guidance)
 
 The goal is not that every sentence formally carries a reference, but that every
 externally verifiable factual claim has **direct, sufficient, and precisely
@@ -411,7 +365,7 @@ pile a block of references at the end of a long paragraph and leave the reader
 guessing which supports what; do not use a local experiment to support a
 stronger or broader conclusion.
 
-### 3.6 Concept order and paragraph load (Source C, hard rule)
+### 3.6 Concept order and paragraph load (method derived from prior guidance)
 
 One paragraph advances one main level of abstraction and ends on a restatable
 intermediate conclusion. **A single paragraph must not simultaneously define the
@@ -429,36 +383,23 @@ the causal or comparative relation can be recovered independently; the reader
 can see which conclusion the example changes. If any fails, move the case later,
 to intuition, framework exposition, or the body analysis.
 
-### 3.7 Ideal target draft, core result, and evidence status (Source C, hard rule)
+### 3.7 Core result and evidence status
 
-Research not being finished does not license an introduction without a core
-result. Write early a complete, coherent, near-submission **ideal target
-introduction** that names the material analyzed, its scale, the method, the
-strongest headline result, three result-type contributions, and their field
-impact. Write it for the most ideal yet still plausibly reachable end state;
-**placeholders in brackets, blank paragraphs, and "results TBD" must not be used
-to dodge the central narrative responsibility.**
+Draft the introduction around the strongest result the available evidence actually
+supports, explaining the problem, method, finding and reader benefit. Best Paper
+improves a developed draft; it does not require an invented ideal end state.
 
-The ideal target draft is first of all a **test of research value**: if, under
-the best reasonable results, the paper still cannot establish an important
-problem, change a substantive judgment, or produce a memorable contribution, the
-research question, method, or contribution positioning must be restructured
-immediately rather than executed mechanically.
+If unfinished research is within the authorized task, distinguish observed results,
+hypotheses and proposed analyses. A planning note may state which possible outcomes
+would change the research judgment, with uncertainty and missing evidence explicit.
+Keep that note separate from the manuscript. Do not invent future numbers, findings
+or contributions to make a planning narrative look submission-ready, and do not
+ban placeholders when they honestly identify missing evidence.
 
-The ideal target draft is a planning artifact, not a draft of the submission. It
-lives in `AUDIT-LOG.md`, and the ban on placeholders applies to it alone: it has
-to commit to a headline result precisely so that the commitment can be judged
-before the work is done. Nothing licenses carrying an unearned result across
-into the manuscript.
-
-Complete narrative and evidence integrity are managed separately: the body stays
-readable end to end, but **results not yet obtained must never be written as
-obtained**. Update the introduction, abstract, and contributions with every new
-round of real results instead of writing them once at the end; claims the
-evidence does not support must be deleted and the surrounding narrative rebuilt;
-claims whose direction or strength conflicts with the evidence must be rewritten
-to the evidence. **In the final submitted version, every result verb, number,
-and conclusion must correspond to evidence actually obtained.**
+Update the abstract, introduction and contributions when evidence changes.
+Unsupported claims are removed or rewritten, and the surrounding argument repaired.
+**Every asserted result, number and conclusion in the manuscript must correspond
+to evidence actually obtained.**
 
 When introducing the work, state what material was analyzed, at what scale, by
 what method, and how those choices address the gap just established. **The
@@ -466,44 +407,13 @@ headline result (the single most memorable result in the paper) must be
 delivered before the contribution list**; the list must never be the first place
 the paper's finding is explained.
 
-### 3.8 Contributions at the end of the introduction (Source C, hard rule)
+### 3.8 Contributions at the end of the introduction
 
-- **Author-wide hard rule: there must be exactly three contributions, each with
-  a bold subheading, each of 30–50 words.** (Word counts [English
-  manuscripts]; Chinese manuscripts convert to characters.)
-- Each must state **the concrete artifact, the method or material, the key
-  finding, and the judgment it changes**; empty verbs such as "we characterize"
-  or "we analyze" are not enough. The full form is: what is delivered, how it
-  was built or validated, what was found, and what the reader can now judge.
-- **The prose paragraph and the list must not say the same thing twice.** The
-  list carries the contribution statements; the prose only transitions.
-- **A contribution must not stop at an artifact or a research action.** "We
-  collect and classify prior work" or "we build a framework" does not qualify;
-  say what the artifact or viewpoint makes comparable that was not, what
-  inference it makes testable, or which new empirical results, theoretical
-  results, and research directions it produces.
+Follow the inherited contribution-format preference maintained in writing-guide G20, unless the current author changes it. Do not manufacture or split duplicate contributions to fill the format.
 
-**A common division of the three (Source B, form reference)**: (1) a shared
-structure or analytical view (definitions, taxonomy, framework, design
-dimensions, evaluation model); (2) systematized material and empirical results
-(corpus, benchmark, unified re-evaluation, case analysis, statistics); (3)
-conclusions and actionability (recommendations, roadmap, research directions,
-selection guidance). This division is a form reference and may be reordered to
-fit the actual contributions; **the three-item count, the bold subheadings, and
-the 30–50 words per item are an author-wide hard rule and do not depend on
-whether the venue requires them.**
+For each real contribution, ask what the work establishes, how it establishes it, what was not known or possible before, and which reader judgment changes. These are questions, not four mandatory slots: a theoretical finding or explanation need not invent a separate artifact.
 
-**Subheading wording**: most common is a searchable noun phrase; article plus
-deliverable also occurs, and **conclusion-sentence subheadings are rarer but do
-exist** (§4 item 6). The actual distribution at the target venue is measured in
-Setup.
-
-**Shortest fix for an overlong contribution item**: do not restructure the three
-roles; keep the three-layer structure and compress the item to **one artifact,
-one core result, one changed judgment**. The heaviest item is usually the one
-carrying an overall verdict plus several cross-mechanism relations plus the
-consequences of the taxonomy; compress that one first.
-
+Distinguish an existing component from the paper's contribution in showing why or how it applies. Do not describe repairing the manuscript's own earlier mistake as a research contribution. State the contribution directly, preserve its supported strength, and leave mechanism detail to the body. Check parallel presentation without forcing unlike contributions into identical sentences.
 ### 3.9 Typesetting the introduction (Source B, generalized)
 
 **Applicability**: this section generalizes from papers that use the
@@ -523,77 +433,8 @@ exhaustive nor a prohibition on other implementations.
 
 ---
 
-## 4. Three-source conflicts and boundaries
+## 4. Source and method boundaries
 
-Each conflict below carries a ruling; **execution follows the ruling**. For a new
-conflict the rulings do not cover, decide in two layers: first authority (Source
-C hard rules outrank the form inductions of Sources A and B); at equal authority,
-or if still undecided, escalate through the hard-rule arbitration order of
-`writing-rules.md` G.8. Either way, record which source the decision rests on in the audit log.
+Source A and B observations describe selected examples of accepted writing, not universal acceptance requirements. Source C preserves earlier author guidance; current requirements and the writing-guide are the operative rule source. Keep the sampling and evidence limits when using examples.
 
-**General ruling (read this before the individual items)**: **the existence of a
-past-practice precedent grants no exemption from a hard rule**, and no past
-practice may be promoted into one either. The Authority statement above and item
-10 own both directions; the paper counts, proportions, and distributions any such
-argument rests on are measured in Setup, per the scope note above.
-
-1. **Abstract word budget.** Source C once gave a short working range while
-   admitting it was not a cross-venue law; Source A shows the real distribution
-   is far wider. **Ruling: no fixed range.** Word count follows the venue's
-   official requirement; the distribution is measured in Setup.
-
-2. **Ban on opening with a stakeholder's situation.** Apparent conflict only:
-   Source A wants the ban made conditional, and the current Source C wording
-   (§2.2) already is. The test is whether the problem has been established, not
-   who the subject is.
-
-3. **Must the ending rest on evidence?** Apparent conflict only: Source A's
-   objection targets an earlier, stricter version. The current §2.5 wording,
-   with its three valid endings, already matches the corpus.
-
-4. **Must the headline result precede the contribution list?** Source C (§3.7)
-   says yes, as a hard rule. Source B finds at least three orderings in past
-   proceedings and notes this rule is **a deliberate stronger narrative design,
-   not a summary of past practice**. The design reason is to keep the
-   contribution list summarizing rather than first explaining the finding. The
-   hard rule does not relax in the face of precedent.
-
-5. **Contribution count and words per item.** Source B shows the count
-   distribution in past proceedings is wider and that three is not any venue's
-   format requirement. That only shows the rule is not externally imposed; it
-   does not affect the author's decision to make it a hard rule for all projects
-   (§3.8).
-
-6. **Are noun-phrase subheadings the only option?** The claim "not one paper uses
-   a conclusion-sentence subheading" was refuted by a Source B counterexample.
-   Noun phrases are merely the most common form, not a hard rule. **This is also
-   a methodological warning: before writing any "not one / all of them"
-   exhaustive claim, you must be able to name the counting basis.**
-
-7. **Citation density in abstract vs. introduction.** Source C (§3.5) requires a
-   direct citation for every external fact in the introduction; Source A finds
-   much lower density in abstracts. Apparent conflict only: it is a division of
-   labor, and §2.6 states the abstract side of it in full.
-
-8. **Priority claims.** Source B finds `first comprehensive` and `to the best of
-   our knowledge` common in past proceedings; Source C and the novelty-padding
-   item of the AI-tell checklist require priority claims to align strictly with
-   the evidence and mark `to the best of our knowledge` and `for the first time`
-   (word examples [English manuscripts]) for deletion. Per the general ruling,
-   precedent grants no exemption.
-
-9. **Defensive text and dashes.** Source B finds dedicated disclaimer boxes and
-   frequent long dashes in past proceedings. Hard rule **A.4** and the global
-   em-dash ban both apply; precedent grants no exemption. The
-   exact scope of the em-dash ban is defined in `writing-rules.md` H.1 and is not
-   restated here.
-
-10. **External-validity limits of Sources A and B.** Both corpora come from one
-    genre at a single conference across two recent editions, and contain only
-    published PDFs and extracted text, no typesetting source (typesetting can be
-    confirmed by appearance only, not by package). No item from Source A or B may
-    therefore be promoted to a `PASS`/`FAIL` gate; they may only rank priorities
-    among implementations Source C already allows. **Genre- and venue-level
-    regularities must be regenerated in each project's Setup from that venue's
-    actual past papers, and the form inductions in this file must not be carried
-    over as facts.**
+Resolved historical conflicts are not a second arbitration workflow. Apply current scope, evidence and reader duty through the shared audit routing. Character-level style preferences and contribution format are maintained once in writing-guide.

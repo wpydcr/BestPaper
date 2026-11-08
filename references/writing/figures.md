@@ -1,18 +1,8 @@
-# Figure and Table Rules (Best Paper shared reference)
+# Figure and table methods
 
-**Scope**: the single rulebook for figures and tables (commissioning, selection,
-encoding, layout, acceptance, readability checks, caption rules and the output pipeline).
-No other file repeats figure or table rules.
+Normative requirements are maintained in [writing-guide.md](../writing-guide.md); execution selection is maintained in [audit/routing.md](../audit/routing.md). This file supplies visual hierarchy, encoding, caption, production and rendered-output methods.
 
-**Provenance**: the morphological generalizations here come from one pass the author made
-over accepted papers from a **single venue and a single genre**, and that analysis is not
-shipped with this skill, so no reader can trace the evidence behind them. **They must
-therefore never be promoted to hard gates**; §8 item 1 gives the test for which of them
-*are* hard gates.
-
-**Corpus statistics do not live here**: see §0.
-
----
+Some morphological examples came from an earlier single-venue, single-genre reading. Its underlying analysis is not bundled, so those examples are not verified general rules. Establish any corpus regularity needed for the current decision from actual comparable papers; do not infer acceptance criteria from a frequency. See §0 and §8 for method limits.
 
 ## 0. Principle: imitate the visual hierarchy, not the surface parameters (author ruling)
 
@@ -33,7 +23,7 @@ This governs how everything else in this file is used, in three layers:
 
 **Promotion and demotion rules (hard)**:
 
-- **Never enter this file, are measured on site in Setup when needed, and may never
+- **Never enter this file, are measured from the relevant corpus when needed, and may never
   serve as a quota or an acceptance item**: figure and table counts, the Figure-to-Table
   ratio, per-paper means, medians and quantiles, positional distribution, number of
   colors, number of icons, style uniformity. These are surface parameters; matching
@@ -91,9 +81,7 @@ result tables preserve all the data but the main conclusion has to be assembled 
 them; many highly similar curve plots are individually complete but add cross-page memory
 load.
 
-**Once objects multiply, three things must be added**: an overview object, a stable
-cross-object encoding, and one cross-object synthesis conclusion. Without these three,
-adding objects only adds noise.
+When several objects burden the reader, identify the missing relationship first. An overview, shared encoding or synthesis may help; add only what serves that need rather than automatically creating all three.
 
 ---
 
@@ -164,14 +152,14 @@ visibly come from the data rather than from the drawing.
 **This is the main carrier of "visual hierarchy" at whole-paper scale**, and the single
 most transferable item in this file.
 
-### 2.5 Density layering: compressed in the body, full draft in the appendix, stable cross-index
+### 2.5 Density layering: readable body, purposeful appendix, stable cross-index
 
 "First understanding" and "complete audit" are conflicting goals for a giant table and
 cannot be carried by one object. The reliable arrangement is three pieces:
 
 1. The body carries a compressed object retaining only **the dimensions that change the
    conclusion**.
-2. The appendix carries the full draft: all fields, tools, parameters, sources, exceptions.
+2. The appendix carries details serving a stated proof, interpretation or reproduction task. Select the needed fields, tools, parameters, sources and exceptions; do not dump every working record there.
 3. A stable cross-index links them (body Table N ↔ appendix Table M).
 
 **Blocking condition**: objects needed for first understanding and for the core judgment
@@ -194,13 +182,7 @@ large**. Pushing key evidence back reduces the main text's judgeability.
 They are not two skins on the same information. The formal label is also not the visual
 grammar: an object that looks like a table may legitimately be numbered as a Figure.
 
-**Figures do not carry the argument for the body text.** A figure's duty is to make an
-**already sound body argument** easier to see. If a claim can only be understood by looking
-at the figure, the body text is underwritten: **fix the body text, not the figure**.
-
-**Figures must use the paper's own vocabulary.** Do not introduce new instances, terms or
-objects absent from the body "to aid understanding"; every label in a figure should be
-traceable to the body text.
+The body and its actual figures/tables jointly carry the argument. Text should identify the claim, the key relationship and how to read the object; it need not repeat every spatial relation or label verbatim. Ensure that information required at an entry point is available there, rather than only in a distant object. The body must still be independently understandable without an optional appendix.
 
 ### 3.2 Selection order (four steps, judged in order)
 
@@ -376,9 +358,7 @@ separate diagnostic object: **they must not be buried in the caption**.
 
 ### 5.4 Body-text closure; pick the template by object type, do not apply it mechanically
 
-- **Result Figure / result Table** use a four-sentence closure: what question this object
-  answers; what the strongest pattern is; one counterexample or boundary; how this changes the
-  later taxonomy, experiments, conclusions or recommendations.
+For result figures and tables, consider four functions: the question, the observed pattern, any necessary evidence boundary, and the judgment or next step supported. Use the functions actually needed; do not require four sentences or invent a counterexample.
 - **Codebook Table**: state the applicable scope, decision rules, ambiguity handling and later
   use.
 - **Structure Figure**: state node and edge semantics, the reading path, and where it is reused.
@@ -394,13 +374,7 @@ object from the paper.
 
 A caption states, per object type: objects, variables, units, metric direction, symbols, panel
 differences, sample or run scope, and the necessary evidence boundaries. **A conceptual figure
-with no axes or values need not be padded with units and sample sizes.** One line is best.
-**Hard gate, no exemption**: measured at the final typeset width, a narrow single-column
-figure MUST NOT exceed 4 lines, and a wide or full-width figure MUST NOT exceed 3 lines.
-When the necessary explanation exceeds the limit, move the non-self-sufficiency explanation
-into the body, but never delete what determines truth value or evidence boundaries. Using
-the caption to state explicitly that something is an inference rather than a direct
-measurement is a legitimate use of epistemic constraint.
+with no axes or values need not be padded with units and sample sizes. Keep the caption concise and self-sufficient at final typeset width. The inherited line-length preference is maintained in writing-guide G26, not redefined here. Move optional explanation to the body, but never silently remove truth conditions, evidence status or information needed to read the object. Distinguish inference from direct measurement when that affects interpretation.
 
 **A caption is a headline position: overstating it is a factual error.** Before the figure
 lands, check every arrow and every number against the source; a schematic being approved does
@@ -426,18 +400,17 @@ positives; confirm with geometric distance or pixel-level checks.
 ### 5.7 Body vs. appendix layering
 
 Objects needed for first understanding and the core judgment stay in the body (blocking
-condition, see §2.5). Full corpus, configuration, secondary results, robustness and source
-drafts go to the appendix. The body must explain how the appendix material constrains the
-conclusion, and provide a stable cross-index.
+condition, see §2.5). Corpus details, configuration, secondary results, robustness and
+source material go to an appendix only when they add understanding or support a necessary
+verification or reproduction task. Internal working records remain outside the paper.
+The body explains what the appendix supports and provides a stable cross-index.
 
 **An object placed after the references is not automatically an appendix**; report positions
 based on the explicit section headings.
 
-### 5.8 Three fast, mechanically executable tests
+### 5.8 Fast diagnostic checks
 
-- **3-second readability**: cover the caption; if a reader cannot say in 3 seconds what the
-  figure is about, it is better left out. Drawing a structure the table already explains is
-  just rearrangement.
+Can a first-time reader quickly identify the object's question and intended task? If not, inspect the title, encoding and nearby introduction. A difficult but necessary relationship may need careful reading; elapsed seconds alone do not justify deleting it.
 - **Do not draw the mathematics, draw the consequence**: unfolding a formula into a flowchart,
   tree or node graph still leaves the reader looking at symbols. The test is "is this insight
   invisible in the symbols": visible only after substituting values → worth drawing; obvious
@@ -460,9 +433,7 @@ based on the explicit section headings.
 5. **Check body-text closure** (§5.4, template by object type).
 6. **Check at final size** (§5.6).
 7. **Decide body vs. appendix layering** (§5.7).
-8. **Look back at whole-paper rhythm** (§1): does the distribution sit in the argument's
-   development zone, is the visual grammar reused, do the body and the numbered objects overlap
-   in duty, and after the density increase were the overview and the synthesis conclusion added.
+When several objects require a shared map, check whether an overview, common encoding or a synthesis provides the missing relationship. Do not add any object solely to fill a standard bundle.
 
 ### 6.1 Production discipline (engineering side)
 
@@ -476,18 +447,8 @@ based on the explicit section headings.
 - **When delegating "what figure should be drawn", always supply the sample image paths.**
   Otherwise the delegate inherits the delegator's blind spot and can only enumerate candidates
   from inside the paper.
-- **Output pipeline (hard gate, no exemption)**: figures MUST be drawn with Python and with
-  Python only: no other drawing pipeline is permitted, whatever the figure type. Anything
-  Python cannot draw (complex hand-drawn schematics, screenshots) is described to the user
-  (intent, elements, arrows) for the user to supply. **Scope of "zero bitmaps"**: it bans
-  rasterizing what should have been vector, which is text, axes, lines, legends and icons. It
-  does not reach raster content that *is* the evidence under §3.4 item 4 (reconstructed images,
-  patches, interfaces, waveforms, artifacts); such a panel is placed at its native resolution
-  and every label drawn around it stays vector. Vectorizable elements MUST use vector
-  output; icons are downloaded as SVG (e.g. Bootstrap Icons, simple-icons) and parsed into
-  vector paths; the PDF MUST contain no bitmap outside the carve-out just stated. Check it on
-  the output with `pdfimages -list`: every image it reports must be an evidence panel under
-  §3.4 item 4, and any other entry is a violation. Caption line limits: see §5.5.
+- **Production and evidence quality**: follow the inherited production preference maintained in writing-guide G26. Keep vectorizable text, axes, lines, legends and icons vector. Preserve genuine evidence bitmaps at suitable native resolution; do not redraw or fabricate source evidence merely to satisfy a vector preference.
+- Inspect the actual exported PDF, including `pdfimages -list` when available, to distinguish intended evidence panels from accidental rasterization. A pipeline name is not evidence of output quality. Current author requests can specify a different pipeline; screenshots and other original evidence are not generated scientific plots. Caption methods are in §5.5.
 
 ---
 
@@ -497,12 +458,7 @@ based on the explicit section headings.
    all years, all venues or the acceptance criteria, and **must never be promoted to hard gates**;
    they may only rank priorities among several compliant implementations. Acceptance proves only
    that a practice can exist, never that it is optimal or that it caused acceptance.
-   **Which clauses those are is settled by what a clause rests on, not by a list**: one that reports
-   how many, how often, how long or how commonly past papers did something is a morphological
-   generalization; one that says what to do, what to check, or what must not be done is not, and is
-   executed as written. Two rules here rest on neither and hold across papers whatever a corpus
-   shows: figures are produced with Python and Python only (§6), and the caption line limits
-   (§5.5). Both are author-level rulings, in the same class as H.1.
+   A statement does not become authoritative merely because it contains “must”. Separate corpus observations, methodological suggestions, verified venue requirements and inherited author preferences. Maintain active writing preferences in writing-guide, and evaluate methods by the reader task and evidence.
 2. Beyond numbered Figures and Tables, algorithms, listings and equations do not enter the
    figure count, but must be evaluated separately when they carry a key visual duty.
 3. Positional observations are based on physical PDF pages (including the cover), which is
@@ -511,4 +467,4 @@ based on the explicit section headings.
 4. **Inferring a figure's existence from body citations alone inflates the count**: an appendix
    object cited in the body may not exist in the target venue's official PDF at all.
    Verification must go back to the actual pages. This is both a validity caveat and an
-   operational discipline for Setup's corpus measurement.
+   operational discipline for any project corpus measurement.

@@ -1,23 +1,27 @@
-# Audit Method (shared across papers)
+# Verification methods
+
+This reference supplies methods, not a second execution workflow. Use writing-guide for principles and audit/routing for task selection, independence, reuse and stopping. Apply the relevant method to the current scope; do not run every section for every edit.
 
 ## 1. Anchors and independence
 
-- There are only two anchors: the **core storyline** and the **stable criteria**, both
-  given by the author. No single round's verdict is a gold standard, the previous
-  round's included: a previous fix may itself be wrong, and being overturnable is
-  exactly why the loop exists.
-- Keep no permanent "rejected" list and never suppress this round with "we said no last
-  time". Anti-oscillation comes from hanging every finding back onto an anchor;
-  **a finding that cannot be hung onto one is not a finding and is dropped** (this is
-  also how "do not nitpick" is executed).
+- The **core storyline** and **stable criteria** anchor the authorized work.
+  They do not replace source evidence or make an old factual judgment true.
+  Check whether a ruling still applies to the current version, goal and premises.
+  Surface new evidence that challenges the storyline and handle positioning changes
+  within the author's authority. No round's verdict is a gold standard.
+- Keep no permanent "rejected" list and never suppress analysis with "we said no
+  last time". Before adopting a finding, identify the affected claim, reader judgment
+  or active criterion and its evidence. An opinion outside the present scope is still
+  analyzed under section 6; its analysis may justify no change or reveal a premise
+  that needs reconsideration. Scope controls execution, not whether evidence is read.
 - "Not a gold standard" licenses **reversal**, not **relitigation every round**. A
   reversal needs new evidence or a new dimension; without one, leave it alone. That is
   convergence.
-- The main session controls process only: it checks authorization and evidence
-  completeness and decides retries, rollbacks, commits and stage transitions. It does
-  not produce candidate findings, write revision text, or stand in for independent
-  verification. A mind that has already seen the previous rounds' conclusions can only
-  prove self-consistency.
+- The main session controls authorization, dispatch, retries, rollbacks, commits and
+  stage transitions, and remains responsible for substantive adoption decisions.
+  It checks the source, evidence, reasoning and expected reader benefit of consequential
+  changes; agreement between agents is not proof. This informed review cannot replace
+  independent verification or a blind read, which require uncontaminated inputs.
 
 ## 2. Everything handed over by the previous sub-agent is untrusted; the evaluation step re-proves it item by item
 
@@ -46,23 +50,23 @@
 
 ## 3. Independence comes from different verification paths, not from more rounds
 
-- **Convergence is judged by blocking risk; its conditions are defined once, in
-  `SKILL.md` under the audit loop's Termination section, and are not restated here.** "N consecutive rounds
-  with no P1" is not by itself convergence evidence: it only proves that those N
-  rounds' path set failed to cover it. Every late-arriving true P1 came from a new path;
-  re-running the same path has diminishing returns.
-- **A new path resets the count**: a new independent verification dimension, a new
-  evidence source or a new failure mechanism is a new path. Changing only the sample,
-  the entry point or the attack while the verification target and failure mechanism stay
-  the same is a mutation path, usable inside a consecutive verification round without a
-  reset; a mutation that exposes a new mechanism is promoted to a new path. Registration
-  and counting are per the audit loop's Termination section in `SKILL.md`.
+- **Completion follows substantive acceptance**, as defined in `SKILL.md` under
+  "独立阅读、送审与停止": established issues are resolved, the key value is correctly
+  understood, and required checks cover the current artifact. Neither a fixed
+  number of clean rounds nor an empty path list proves that result.
+- **A new path updates coverage, not a counter.** A new verification dimension,
+  evidence source or failure mechanism identifies what now needs checking.
+  Changing only the sample or entry point may strengthen an existing check; if it
+  reveals a new failure mechanism, assess that risk and its affected scope.
+  Record actual coverage, evidence and unresolved work without resetting a
+  consecutive-round count or requiring unrelated checks to repeat.
 - **Convergence is a verdict on one text state, not a permanent property of the paper**:
   after convergence, **every substantive edit to the body voids that verdict**, and
   convergence may be reclaimed only after a regression sweep over all hunks of that
-  edit. Start the next round with `git log <convergence commit>..HEAD` to see what moved
-  after convergence. Commits nobody re-audited after convergence are the richest P1
-  seam, and are the easiest to mistake for "already audited last round".
+  edit. Compare the current files with the recoverable accepted baseline; if the
+  project uses git, `git log <accepted commit>..HEAD` can locate intervening changes.
+  Otherwise use the saved version and full diff. Unverified later changes must not
+  inherit acceptance from an older version.
   **Readability rewrites are the most dangerous**: they systematically change sentence
   structure (grouping markers, repeated subordinating conjunctions, term-name
   anaphora), and those are precisely what carries the logical relations. One measured
@@ -102,14 +106,21 @@
   roles remain the most effective path for **factual, arithmetic, referential and
   delivery-surface** defects and are neither weakened nor retired here; only their "add a
   qualification / disclosure / explanation" output is constrained.
-- **When external opinion is fed in, always dispatch a blind agent that cannot see it**:
-  only items hit independently are trustworthy. Without the blind pass there is no way
-  to tell "the report was right" from "the agent was carried by its phrasing".
+- **When external opinion is fed in, use an independent check that first reads the
+  relevant source without the opinion's proposed diagnosis.** Then assess every
+  received opinion against the source, evidence and reasoning. Failure to rediscover
+  an issue does not refute it; a second agent's agreement does not prove it.
+  Record the independent basis for adoption or rejection.
 - **Checking external opinion does not stop at right-or-wrong**: where an external
   opinion points in the wrong direction is often exactly where a more serious real
   problem sits.
 
 ## 4. Exhaustiveness
+
+Git commands below are examples for projects that already use git. With another
+versioning method, use the saved baseline, changed-file list and archived originals
+to perform the same checks. Missing history is reported as an unchecked range;
+do not invent a commit or initialize a repository just to satisfy these examples.
 
 - **The moment a failure form is found, sweep the whole text for its family** instead of
   fixing that one point and stopping. After fixing, ask: how many other instances of
@@ -118,8 +129,8 @@
 - **Before writing any exhaustiveness claim ("only X left", "the only one in the
   paper"), verify it by grep.** An unverified exhaustiveness claim is a mine laid for
   the next round: it makes later rounds believe this area is already clean.
-- **A batch commit is a family by construction; always hunt for the misses** (start with
-  `git show <sha> --stat` for the file list):
+- **An edit batch is a family by construction; always hunt for the misses** (use its
+  changed-file list, or `git show <sha> --stat` when the batch is committed):
   - Renames: the miss is an orphan symbol, hiding wherever sequential reading is least
     likely to reach (in theorem papers, typically the theorem's formal premises).
   - Deletions: the miss is a proper name **defined in the deleted file and used
@@ -177,12 +188,17 @@
 
 ## 6. External opinion is a source of leads, not an agenda
 
-External audit reports get no ledger, no per-round re-adjudication duty, and no place in
-the termination conditions. To decide whether to chase an item, ask only: would a
-verification path already scheduled for this round reach it independently? Yes → handle
-as an ordinary finding, and keep the source out of the rationale. No → it is a special
-request, and is not done. The agenda is set only by the core storyline, the stable
-criteria and the scheduled paths.
+Every received opinion is analyzed, including opinions outside scheduled paths and
+opinions labelled non-substantive or previously settled. In a compact project record,
+retain the source, original text, reviewer's reading, the manuscript's actual claim,
+independent judgment and disposition. Merge duplicates without losing their sources.
+
+Distinguish real errors or argument gaps, expression-induced misreading, reviewer
+omission or faulty reasoning, and different standards or out-of-scope preferences.
+Rejection needs a checked reason, not a prior verdict alone. Analysis does not imply
+adoption or unlimited new work: changes still pass the validity, fix, value and
+authorization gates. An opinion may reveal a new verification path; being outside
+the scheduled paths is not grounds to ignore it.
 
 ### 6.1 An external misreading must first pass the "reproducible by the target reader" test (before any discussion of fixes)
 
@@ -213,14 +229,14 @@ and does not consume page budget.
 
 ### 6.2 Value ruling: valid ≠ worth changing (the evaluation step's third ruling)
 
-The evaluation step makes **three** independent rulings, not two: does the finding hold
-→ is the fix right → **is it worth it**. Four questions for value: is this change
-**local tuning**? does it make a **substantive contribution** to the paper? does the
-**space it takes match that contribution**, measured against the paper as a whole? was
-the solution **designed from a whole-paper view**? **Any "no" means do not do it, even
-if the finding holds and the fix is usable.** The space question asks about proportion
-inside the paper and never about the page budget: §9 still bars withholding a finding or
-a suggestion because it adds words.
+Check four questions before spending effort on a valid proposed fix:
+
+1. Does it change a concrete reader judgment or prevent a substantive error, rather than merely tune wording?
+2. Does its benefit justify the added work or explanatory burden?
+3. Does its space and emphasis fit the role it serves?
+4. Does the paper as a whole improve, with its genuine strengths preserved?
+
+A negative answer calls for a better fix or retaining correct text, not a fabricated defect. A small edit can still be substantive when it prevents a false belief. Page constraints do not determine whether a finding is true.
 
 The audit loop's most typical failure is not a wrong edit but a pile of individually
 valid micro-adjustments: each one hangs back onto a criterion, each one passes the
@@ -248,79 +264,25 @@ passed.
   it) with a garden-path sentence (the reader must backtrack and re-parse) buys the dearer
   defect; the quieter form replaces an unparsable statement with one that parses and is
   false, which the next round is **less** likely to catch.
-- **Boundary**: only substitution **within one quality dimension** is gated (readability for
-  readability, precision for precision, naming for naming); cross-dimension repair (a fact
-  corrected, a missing definition supplied) has predictable side effects and needs no
-  separate ruling. Both questions belong to the **independent verification role that took no
-  part in the three rulings**: proposer and evaluator are already immersed in their own
-  diagnosis. This ruling necessarily runs **after** the edit lands, because a side effect
-  cannot be read off a prediction, only off the new text.
+- **Scope**: changes across quality dimensions also need side-effect checks. Correcting a fact or supplying a definition may create ambiguity, bury the point or weaken a valid result. Inspect foreseeable risks before writing and actual effects afterwards. Use the relevant independent reviewer and affected scope; this is not a demand for another universal full-paper role.
 - **Failing it has one outcome: the edit is rolled back**, either to the original defect or
   to a different fix that passes. It is recorded as "fix unusable" under §5, never as "no
   problem here", and the original finding stays open.
 
-### 6.4 An external scorer's score change is not a quality signal
+### 6.4 A score is a lead, not proof of reader benefit
 
-- **Any scoring function orthogonal to the dimension you optimize is this case** (LLM
-  review, readability scores, grammar-checker scores alike): the core failure is letting a
-  function that does not measure your quality dimension drive content rulings. Before
-  editing on a score, re-sample the **same** version several times to see the spread, and
-  check sentence by sentence whether the criticised text is present verbatim in the version
-  that scored well.
-- **Failure form**: one system, two runs, accept and borderline reject; attributed item by
-  item, the prose bore no real responsibility for the drop, and the wording attacked in the
-  low run stood word for word in the high-scoring version, listed there as a core
-  contribution. Correct prose then gets rewritten for sampling noise, with page budget and
-  content rulings handed to that function. **Boundary**: concrete checkable charges (a
-  number that does not add up, a claim contradicting the artifact, a wrong citation) are
-  settled on the facts, score aside; a score that stays low across re-samples of one version
-  is a true signal.
+Check concrete charges against the exact scored version and source evidence. If a decision genuinely depends on an unstable score, comparable re-sampling can help distinguish noise, within the authorized scope. It is not a mandatory new review cycle.
+
+Stable low scores still do not prove that the scoring criterion measures the intended reader outcome. Inspect the actual interpretation and argument. Differences in prompts, models, opponents or input quality limit what a before/after score can establish.
 
 ## 7. The over-auditing gate (the audit loop's own most common disease)
 
-- **False-belief test** (the execution criterion for hard rule A.5, "do not manufacture
-  audit problems"): without the qualifier, would a reader reading linearly in compiled
-  order form a **false belief** that adjacent text does not correct → real finding.
-  Merely "a formalist could construct a counterexample" → not a finding.
-- **Qualifier-count gate** (the operationalization of hard rule A.9, "state the
-  applicability domain in exactly one place"): stop as soon as one qualification needs to
-  be inserted in more than one place. Once a fix grows into "insert the same word N
-  times", rule it over-auditing and roll the whole thing back. A same-shaped sentence in
-  a headline position is prose gloss; its truth value is set by the evidence frame of
-  the chapter it sits in, **not by the universal form of the formal statement it
-  glosses** (in a theorem paper that formal statement is the theorem; in empirical,
-  measurement or qualitative work it is the glossed result statement and its
-  applicability domain).
-- Two exceptions: **removing an internal contradiction** (change only the side that
-  genuinely collides), and **reference, arithmetic, notation or factual errors** (judged
-  by ordinary standards).
-- **"The reader cannot recompute it" is not a defect criterion**: only a gap that makes a
-  body-only reviewer form a **false** belief counts. Leave alone places that lack detail
-  but where the belief is true. Nothing may be added on the grounds of "improving
-  checkability".
-- **Absolutely no over-defensiveness under the interface of "honest disclosure" (author
-  ruling, hard rule)**: adding disclosure sentences, disclaimers or limitation notes in
-  the name of honesty, transparency or keeping the reader informed is over-defensiveness
-  through another entrance. A disclosure is allowed only when **omitting it would make
-  the reader form a specific false belief** (you must be able to state what that false
-  belief is and why adjacent text cannot correct it), and the same fact is disclosed once
-  only, where the information belongs. Any disclosure sentence for which no specific
-  false belief can be stated must not be added, and existing ones must be deleted. No
-  step may add one on the grounds that "one more disclosure is safer".
-- **A disclosure finding that survives the false-belief test still has a fixed repair
-  order**, with a standalone disclosure sentence as the last resort. Four mechanical gates,
-  any one of them empty voiding the finding: you can name the specific false belief, you can
-  point at the text that triggers it, the information **carries truth-value
-  responsibility**, and repair in place has been shown insufficient. Order, highest first:
-  delete the misleading wording; rewrite the sentence that makes the claim; state the
-  minimal fact once where that information belongs; a standalone disclosure sentence.
-- **Reverse boundary: a disclosure that carries truth-value responsibility may not be
-  deleted.** The dividing line is **whether some statement in the body becomes false once it
-  is gone**, not whether the reader would like to know. In quantitative work this shows up as
-  arithmetic: an overlap count that lets a total reconcile stays, while which particular item
-  overlapped can go. Elsewhere it shows up as a stated condition a theorem, a definition or a
-  qualitative claim silently depends on. Distortions of the "claims something exists that
-  does not" kind are always fixed and stand outside this order.
+- **Scope of this method**: diagnose unnecessary defensive prose and hypothetical obligations. It does not exempt actual mathematical counterexamples, factual errors, evidence gaps, required disclosures or necessary method information.
+- **Reader-belief test**: identify what the target reader would reasonably conclude at the current point, using only available context. Repair a misleading claim at its source; do not rely on later text to undo it.
+- **Qualifier placement**: keep a condition where it determines truth, scope or interpretation, including independently read abstracts and captions. Repeated wording is unnecessary only when it has no current function.
+- **Checkability alone is not a reason to add material**. Necessary evidence, reproducibility information and verified submission requirements are different: inspect their actual role rather than dismiss them as defensive detail.
+- **Repair choices**: remove misleading wording, rewrite the claim, place the minimal necessary fact where the reader needs it, or use a separate explanation when warranted. These are choices by effectiveness, not four compulsory gates.
+- **Deletion boundary**: do not remove a fact or condition that another statement relies on without preserving its duty. Evidence that changes the central judgment must not be hidden for rhetorical advantage.
 - **Before changing a headline's prose gloss, check whether the chapter it glosses makes
   an equally strong claim**: changing only the gloss and not the chapter trades one
   inconsistency for another.
@@ -333,10 +295,7 @@ passed.
 
 ### 8.1 Wording gate (mechanically executable, defensive)
 
-For every word in the fix that was not copied verbatim from the original sentence, grep
-the whole repository: is it a term defined in italics somewhere, a column header of some
-table, a value of some state machine? On a hit, pick another word. Whoever proposes the
-fix will not check this themselves.
+When a change introduces or reuses a potentially technical word, inspect its definitions, table headers and other relevant uses. A match is a reason to check meaning, not automatically to choose another word. Reuse a correct established term for the same object; distinguish different meanings and check local scope after replacement.
 
 ### 8.2 Whole-paper gate (constructive; takes priority over 8.1)
 
@@ -347,10 +306,7 @@ scale? Finishing only the defensive checks does not count as finished.
 
 Four questions before any fix lands:
 
-- **Does a correct version already exist elsewhere in the paper?** If so, reuse it
-  verbatim; inventing a third phrasing is not allowed. When the same assertion appears N
-  times and only one is off, the fix is to align that one to the other N−1, not to
-  rewrite it in place.
+- **Does an accurate formulation already exist?** Use it as evidence for the intended object and scope. Reuse wording when its current rhetorical duty matches; adapt it when an abstract, definition or explanation needs a different form. Do not create gratuitous synonyms or mechanically duplicate text.
 - **Can changing the upstream kill several downstream instances at once?** When one root
   cause is scattered across many places, changing the definition beats changing each use.
   Locate the layer of the root cause first, then decide which layer to touch.
@@ -383,15 +339,13 @@ the diagnosis usually wrong**, so fixing by the reviewer's diagnosis fixes the w
 - **No padding to reach a page count**: being under the target is not a defect, and
   content written to reach a word count is necessarily filler, another entrance for
   over-defensiveness. An under-length paper is reported, not acted on.
-- **In audit rounds the page count is a monitoring metric, not an action target**: the
-  per-round compile-and-check exists only to measure and report. An overrun is fixed in
-  delivery; a shortfall is reported, as above. **Writing a monitoring metric in
-  as an action target** (e.g. a criterion saying "below the floor, add content")
-  immediately induces decisions that sacrifice content for layout; it is the page-budget
-  projection of "proxy metric substitutes for user outcome". Audit rounds have exactly
-  three actions on page count: compile, measure, report. The one exception is a round
-  delivery sends back specifically to act on the budget, whose scope and exits are
-  defined in `SKILL.md`; it still may not add content, and everything above still binds it.
+- **Measure pages when the current layout or delivery task needs the measurement**,
+  using the real submission rules and the relevant rendered version. Repeating a
+  build for every content pass is not an acceptance condition. A content audit does
+  not silently become a compression task; when compression is authorized, preserve
+  meaning and assess deletion cost under writing-rules chapter 6. The current
+  routing is `SKILL.md` "专业验收不能丢", not a separate delivery-to-audit return loop.
+  Never add content merely to fill an observed shortfall.
 
 ## 10. Table criteria
 
@@ -425,29 +379,31 @@ the diagnosis usually wrong**, so fixing by the reviewer's diagnosis fixes the w
   asks for** (the header asks for A; the cell holds B, which sat in the same source
   paragraph and was copied over in passing).
 
-## 11. The four-role loop for content audit, and pipeline parallelism
+## 11. Content-check functions and pipeline parallelism
 
-A content-audit round uses four mutually separated roles: domain audit produces
-candidates; independent evaluation rules on validity, fix and value; the revision role
-implements only cleared items; the independent verification role blind-checks hunks,
-cross-chapter interfaces and the content-audit exit conditions on the current, revised
-version. A failed verification carries new evidence into the next lap; without independent
-verification there is no close-out.
+A revision batch needs distinct functions: proposing supported changes, independently
+assessing validity and value, executing authorized changes, and independently checking
+the revised artifact. These functions do not impose a fixed four-agent or repeated-round
+schedule. Post-edit verification checks the full batch, affected interfaces and actual
+reader effect against the current agreed scope. It is an informed regression check,
+not a blind review. Failed verification keeps the affected issue open; passing requires
+evidence of repair, preserved value and no unresolved required work.
 
 ### 11.1 Pipeline parallelism (how parallel execution goes wrong)
 
-Which tasks may run in parallel, which serial barriers must not be broken, and the
-dispatch and close-out discipline are orchestration, defined once in `SKILL.md`
-"Parallel-first scheduling" and not restated here. This section carries only the failure
-forms and the measured lessons.
+Dispatch boundaries and dependencies follow `SKILL.md` "准备派发或改稿时";
+post-edit checks follow "修改落地后". This section supplies concrete failure modes
+for applying those nodes, not a second mandatory schedule.
 
-- **Cross-round pipelining**: during round N's revision and blind review, start round
-  N+1's audit paths that do **not** intersect this round's edit regions (partition the
-  regions at dispatch time; intersecting paths must wait for the commit).
-- **Two adversarial agents instead of serial evaluation**: dispatch two mutually invisible
-  agents on a critical path; adopt on agreement, adjudicate only on divergence.
-  **Independence comes from different paths, not from ordering**: running the same
-  evaluation twice in sequence buys rounds, not independence.
+- **Parallel preparation** may use a fixed version when its premises and write scope
+  are independent of pending edits. Do not present it as acceptance of the future
+  combined version. Checks that depend on the edited text wait for writes to finish
+  and inspect the same frozen batch; dependent blind review waits for the acceptance
+  node in `SKILL.md`. A commit is optional; a stable, identified version is not.
+- **Multiple independent checks** can help on a critical risk when they use different
+  evidence or reasoning paths. Agreement does not authorize adoption; the main session
+  still checks the substantive basis. Choose the number of checks from the risk and
+  the agreed scope, not a fixed two-agent prescription or a target round count.
 - **Revision agents touching the same file must be dispatched serially**: if parallelism
   is genuinely needed, enumerate a **file-occupancy list** per agent before dispatch and
   confirm zero intersection, with the list written into the dispatch instructions rather
@@ -464,19 +420,14 @@ forms and the measured lessons.
 
 ### 11.2 Where a new lesson is recorded
 
-A lesson that holds only for this paper goes into the project `AUDIT-LOG.md`; a lesson
-that comes from a general operation reproducible across papers, and that no rule here
-already covers, is written into this rule library directly.
+A paper-specific lesson belongs in that project's own lessons document. The working log records the current event and links the lesson; it does not duplicate the entire lessons file.
+A transferable mechanism can be proposed for BestPaper with its evidence and applicability. Manuscript work does not itself authorize editing the shared skill or global instructions; an authorized skill-maintenance task does.
 
 ## 12. Contaminated premises mean restart
 
-When the premise given to a sub-agent is wrong, **restart on discovery; do not send a
-correction and let it continue**. A correction can only constrain the reasoning that
-follows the message; what it already discarded, downgraded or rewrote under the wrong
-premise is neither in its output nor recoverable by asking. The cost of a restart is
-visible, the cost of contamination is not, so take the visible one. An agent that has hung
-but **produced no conclusions yet** may be woken and resumed; that is not contamination,
-because there is no reasoning done under the wrong premise for a correction to arrive after.
+When a task used a wrong premise, file, scope or example, discard the affected execution and restart with corrected inputs. A correction message cannot reveal what was already suppressed or reinterpreted under the wrong premise.
+
+An ordinary suspended task can resume when its inputs and premises remain valid. Lack of a visible output is not evidence that no contaminated reasoning occurred.
 
 ## 13. Seams and engineering details
 
@@ -494,12 +445,7 @@ because there is no reasoning done under the wrong premise for a correction to a
   and chapters; this one looks at **the part of the same sentence that was not
   replaced**. One measured unit error survived exactly this way, through a rewrite of the
   first half of its own sentence.
-- **Deletion gate**: grep once each for the symbol names inside the text to be deleted,
-  the original phrases that redeem promises made in the introduction, and the anaphoric
-  nouns in the following three sentences. If any hit count is 1 (the text to be deleted is
-  the only place it is redeemed), deletion is forbidden. Before deleting pre-existing
-  text, run `git log -S "<fragment>"` to check whether it was deliberately kept in earlier
-  rounds.
+- **Deletion search**: locate the symbols, introductory promises and dependent references carried by the proposed deletion. Counts identify candidates, not whether a duty is unique or dispensable. Read the semantic dependency and identify its replacement. Where repository history exists, inspect relevant prior decisions rather than treating either a historical deletion or a historical retention as permanent authority.
 - **Cross-line double check**: when the source file is hard-wrapped, a phrase grep misses
   occurrences that span lines. **The hard requirement is that the cross-line double check
   must be done**: first search the whole phrase on a single line, then search again in
@@ -512,7 +458,8 @@ because there is no reasoning done under the wrong premise for a correction to a
   at sentence start, repetition within ten lines above, and tense breaks at the insertion
   point.
 - Unique filenames for concurrent writes, non-empty output checks and the networking
-  discipline are dispatch orchestration: see `SKILL.md` "Parallel-first scheduling".
+  discipline support `SKILL.md` "准备派发或改稿时" and "修改落地后": give each
+  concurrent temporary artifact a unique path and verify actual returned content.
 
 ## 14. Boundaries for verifying records and supplementary material
 
@@ -525,12 +472,7 @@ scope.
   because "a reviewer cannot recompute it" is falsifying records. Whenever the urge to
   chase a data source arises, ask first: is this serving the reader, or serving the
   feeling of "I verified it"?
-- **Verification has two levels**: with the records out of reach, settle the case using the
-  paper's own chain of definitions (the paper is a closed formal system, and most "we must
-  look it up externally" questions are answered by its own state machine); with the records
-  in hand, a self-consistent definition chain is only a necessary condition: **verbatim
-  checking is the verification**, and any body assertion citing the records must be checked
-  against the record text.
+- **Keep two verification states separate**: an internally consistent chain of definitions may support a formal conclusion, but it cannot establish external events, dataset contents or execution records. If source records are unavailable, mark those factual checks unverified and state the effect on the claim. When records are available, compare the actual assertions with them; self-consistency is not a substitute.
 - **The delivery-surface citation chain must be checked in both directions**: check both
   "does the artifact contain what the paper names" (missing = false statement, must fix)
   and "does the paper mention what the artifact contains". **A reverse-direction gap

@@ -1,121 +1,44 @@
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-# Best Paper
+# BestPaper
 
-通过一个能够收敛的修改 loop，把已有论文初稿推进到更好的投稿版本。
+改进已有且已形成论证或证据的论文，让读者看懂真实价值并信任研究。执行入口是[SKILL.md](SKILL.md)。
 
-> "Like a whole paragraph of caveats and disclaimers and hedging. Sick of it."  
-> 中文：整整一段都是限定、免责声明和闪烁其词，真的受够了。 ([from Reddit](https://www.reddit.com/r/ChatGPT/comments/1uzslsj/chat_gpt_is_becoming_exceedingly_cautious/))
+## 先按当前任务选择范围
 
-> "It will say 'this one is no good' and when I say 'I think that's the best one' it will reply 'you're right, that's the best'."  
-> 中文：它刚说这个不行，我说我觉得这个最好，它马上又说你说得对，这个就是最好的。 ([from Reddit](https://www.reddit.com/r/ChatGPT/comments/1vivmzq/how_do_you_make_chatgpt_stop_being_a_yesman/))
+[审计安排](references/audit/routing.md)将80个检查点映射到25个可选专业专项、2个判断环节和3组操作核验。这是任务目录，不是每轮30次或80次审计。纯机械微改核实际差异；普通修订沿受影响对象和依赖回归；首次诊断、大重构及送审前检查适用范围。复用须有版本与依赖依据，不能只凭旧版通过。
 
-> "I am feeding it scientific academic journal materials and it comes with stuff like 'intricate dance' all the time."  
-> 中文：我给它的是科学论文材料，它却总写什么“错综复杂的舞蹈”。 ([from Reddit](https://www.reddit.com/r/ChatGPT/comments/16ykd9e/how_to_get_chatgpt_to_stop_writing_in_superfluous/))
+数学证明、平凡推理、整篇逻辑和基本易读性不能互相代替。术语、句式等需要一起权衡的检查联合执行，分项留证。实际作品与读者效果决定是否完成，不以报告数、绿灯或胜场验收。
 
-> "It invents concepts without defining them and bakes them into specs and plans."  
-> 中文：它凭空发明概念，又不下定义，然后直接塞进规范和计划里。 ([from Reddit](https://www.reddit.com/r/ClaudeAI/comments/1uok58g/claudes_self_invented_technical_jargon_complex/))
-
-> "It corrects that area, but then regresses to worse results in other areas."  
-> 中文：它修好了这一处，其他地方却退回到更糟的状态。 ([from Reddit](https://www.reddit.com/r/ChatGPTPro/comments/1icbbmz/a_frustrating_limitation_of_chatgpt/))
-
-> "So clearly it is impossible to provide a revision of the draft which will not get a new comment."  
-> 中文：看来根本不可能交出一个不会再招来新意见的版本。 ([from Reddit](https://www.reddit.com/r/academia/comments/1t6msy8/rant_im_so_fcking_tired_of_my_supervisor_using/))
-
-> "At this point, it feels more work to get ChatGPT to write something than writing myself everything from scratch."  
-> 中文：到这个地步，让 ChatGPT 写东西感觉比我从头自己写还费劲。 ([from Reddit](https://www.reddit.com/r/academia/comments/1siehpx/how_does_anyone_even_rely_on_ai_for_writing/))
-
-AI 对论文工作确实很有用。它能通读初稿，追踪跨章节论断，检查图表和引用，对比版本，也能直接处理本地文件。问题在于，普通对话让同一个模型同时负责找问题、做判断、改稿和给自己验收。过度防御、迎合、华丽包装、自造术语、局部回归和永远改不完，往往就发生在这里。
-
-Best Paper 把这些决定分开，再用证据让修改真正闭合。
-
-## 核心 loop
+## 文件职责
 
 ```text
-审计 -> 独立裁决 -> 修改 -> 独立验证 -> 重复
+SKILL.md / SKILL.codex.md       执行入口（正文一致，运行环境不同）
+references/writing-guide.md    写作规则主源
+references/audit/              专项选择、80检查点、核验方法
+  routing.md                  完整检查/增量回归/证据复用
+  specialties/                研究、写作、流程专项卡
+  checks.json                 逐项动作、归属、触发和复核
+  methods.md                  证明、反例、删除、表格等方法
+references/writing/            论证、入口、图表、语言方法
+  background/                 可选来源背景，不作为执行规则
+references/review/protocol.md   冷读、三级盲审与意见处理
+references/project/            工作状态与项目经验模板
+references/runtime/            激活、停止与唯一提醒正文
+scripts/reminder.py            Claude工具边界提醒器
+tests/test_reminder.py         提醒器行为测试
 ```
 
-审计必须给出证据。独立裁决先找反例，再决定问题是否成立。修改只执行获准的项目。独立验证不继承前面的推理，直接阅读改后的论文，并检查改动对全文的影响。
+规则只在[写作指南](references/writing-guide.md)维护；[执行安排](references/audit/routing.md)决定任务和复用；专项卡与检查点提供具体动作；写作和核验附件提供按需方法，不另立硬规则体系。每个项目自己的经验文档保存具体事故，只有可迁移机制进入BestPaper。
 
-这套结构针对的正是开头那些问题：
+## 提醒与停止
 
-* 只有证据需要时才保留限定，不以严谨为名不断自我削弱。
-* 作者、导师和审稿人的要求都要判断，不能自动服从。
-* 华丽语言和私造概念必须证明自己确有必要。
-* 局部改善不能悄悄破坏其他章节的主张。
-* Loop 在登记的检查路径收敛后停止，不靠模型“再想一条意见”。
+Claude正式调用Skill或`/BestPaper`后注册技能级hook；每满30分钟，在下一工具批结束时向当前模型注入[纠偏提醒](references/runtime/reminder.md)。不保证中断纯思考或尚未结束的长工具。Codex按[运行说明](references/runtime/activation.md)使用可用的原生heartbeat，工具不可用须如实说明。提醒不保证模型永远遵守，也不替代实际验证。
 
-## 使用前提
+有依据判断实质性收敛可以停止并交回当前稿、理由与检查范围。最后润色由人工明确决定；基础理解障碍和必要论证修复不等待最后润色。完成、暂停、等待作者或切换任务时关闭提醒。
 
-Best Paper 需要一份已有初稿。研究 idea 必须已经落实为某种论证、方法、证据、分析或实验，而不是只有一个尚未展开的想法。
+## 安装与检查
 
-它不会凭空制造贡献，不会虚构结果，也不能保证录用。
+Claude使用根目录SKILL.md（含技能级hooks）。Codex将仓库安装到skills/best-paper后，用SKILL.codex.md替换该安装的SKILL.md；两份正文一致，Codex不使用Claude hooks。
 
-稿件可以是 LaTeX、Word、Markdown 或其他可编辑的本地格式。内容 loop 与格式无关，最终验证会检查审稿人真正收到的成品。
-
-## 安装
-
-```powershell
-# Windows PowerShell
-Copy-Item .\best-paper "$env:USERPROFILE\.claude\skills\best-paper" -Recurse
-```
-
-```bash
-# macOS 或 Linux
-cp -R ./best-paper ~/.claude/skills/best-paper
-```
-
-安装后重启 Claude Code，或重新加载 skills。
-
-## 开始处理一篇论文
-
-直接告诉 Best Paper 哪些是真正的稿件文件，不要让它在混杂的项目目录里猜。
-
-```text
-使用 Best Paper 处理这份已有初稿。
-
-项目根目录：<路径>
-稿件文件：<一个或多个路径>
-权威可编辑文件：<路径>
-目标投稿场所：<名称，或尚未确定>
-论文类型：<研究论文、综述、理论论文、学位论文章节等>
-
-先只做初始化。等我确认后，再开始审计 loop。
-```
-
-## 初始化会确定什么
-
-初始化先给“什么算改得更好”一个稳定答案，然后才允许进入修改 loop。
-
-| 初始化内容 | 为什么需要 |
-| --- | --- |
-| 权威稿件文件和渲染或导出路径 | 防止改到旧副本，也让最终成品可以验证 |
-| 干净的 Git 基线 | 让每一轮都能准确检查和回滚 |
-| 论文实际拥有的证据与依据材料 | 防止把聊天解释或虚构支撑写进论文 |
-| 投稿场所、论文类型、核心故事、红线和禁改区域 | 防止一条“好建议”把论文改成另一篇论文 |
-| 当前投稿要求和同类已接收论文 | 用相关证据替代模型的通用偏好 |
-| 统一的页数或字数口径 | 让篇幅判断前后一致 |
-| 机械检查、工作项和验证路径 | 分开客观错误与主观判断，并给 loop 明确终点 |
-| `AUDIT-LOG.md` | 让决定、授权和当前状态可以跨会话恢复 |
-
-初始化以作者确认结束。请求执行一轮，只代表授权这一轮，不代表授权完整流程。
-
-## 包含哪些文件
-
-| 文件 | 内容 |
-| --- | --- |
-| `SKILL.md` | 控制初始化、四角色 loop、授权、冻结、回滚和交付 |
-| `references/writing-rules.md` | 全文逻辑、论断、证据、防御性写作、术语、引用和压缩 |
-| `references/audit-method.md` | 反例优先的裁决、问题质量、副作用、回归和收敛 |
-| `references/abstract-intro.md` | 摘要、引言、贡献陈述和论文入口 |
-| `references/figures.md` | 图、表、图注、视觉层级和最终尺寸检查 |
-| `references/polish.md` | 内容冻结后的语言打磨、AI 写作模式、作者声音和术语统一 |
-| `references/project-log-template.md` | 用于生成可恢复项目状态 `AUDIT-LOG.md` 的模板 |
-
-这些附件只在相关阶段加载。README 负责说明这个 skill 是什么，具体执行规则留在对应文件中。
-
-## 什么时候停止
-
-所有登记的验证路径都已运行，采纳的修改已经落实，没有未处理的回归，并且独立验证在同一个候选版本上收敛后，内容阶段才结束。随后由作者冻结内容。
-
-Best Paper 只在冻结后处理语言、图表、版式、篇幅和投稿规范。如果某项修改会改变论文含义，它必须回到审计 loop。
+提醒器只用Python标准库。确认`python`指向Python 3；运行`python -m unittest discover -s tests -v`检查提醒器行为。命令行测试不等于真实客户端的端到端注入验证，仍须在实际论文会话确认启用回执。
