@@ -48,6 +48,18 @@ This reference supplies methods, not a second execution workflow. Use writing-gu
   used only to locate ("roughly that paragraph in §5") needs no verbatim check; only one
   about to enter the body does.
 
+### 2.1 Verify the criticism's premises before verifying its repair
+
+An independent reviewer must reconstruct the claim from the allowed passage and context, not inherit the proposer's interpretation. When organizing the batch, first provide the source and a neutral request to state its claim, scope and premises; record that reading before providing diagnoses and candidate changes. A reviewer who has already seen the diagnosis may still check it against evidence, but must not call that an uncontaminated first read. Do not add a new reader for every small item; group shared contexts and preserve the actual input sequence.
+
+Use the target peer's normal reading: the relevant preceding text, local paragraph, caption, legend, table headings and established disciplinary conventions available in this reading task. Do not isolate a word when those materials settle its reference or scope. Equally, do not invent a manuscript-specific assumption, borrow an answer from unavailable later text, or rely on author explanation to rescue an actual gap. The target reader is neither deliberately adversarial nor omniscient.
+
+For each proposed counterexample, match its objects, domain, quantifiers, assumptions, metric and claimed conclusion to the original. State any extra or changed premise. An example that violates the actual assumptions, changes the problem, ignores the caption or strengthens a bounded claim does not refute that claim. A valid in-domain counterexample remains a required correction even if it is a boundary case, brief, or unlikely in practice.
+
+For ambiguity, identify readings that are supported by the available context and would naturally occur to the intended peer, and explain how their difference changes a meaningful judgment. Merely inventing a second parse is not evidence of a defect; do not require two readings when there is only one natural reading. A natural but wrong reading still matters even if the author intended the other one.
+
+Report separately: the actual contextual claim; whether the criticism establishes an error, an actual reading obstacle, an optional expression improvement, or insufficient evidence; and whether the proposed fix is correct and worth doing. Do not promote an optional rewrite into a mandatory logic repair. If reviewers agree, check whether they used the same unproved interpretation; agreement is not independent evidence. D01 is responsible for this check, not a new layer of audits.
+
 ## 3. Independence comes from different verification paths, not from more rounds
 
 - **Completion follows substantive acceptance**, as defined in `SKILL.md` under
