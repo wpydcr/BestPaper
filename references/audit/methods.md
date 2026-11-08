@@ -206,6 +206,14 @@ adoption or unlimited new work: changes still pass the validity, fix, value and
 authorization gates. An opinion may reveal a new verification path; being outside
 the scheduled paths is not grounds to ignore it.
 
+### 6.0 Establish whether the review question belongs to the current manuscript
+
+Before adopting or escalating a review, the main session reads the current introduction's research question, contribution, scope and evidential commitments, then checks their realization in the body. Map the manuscript's actual claim to the reviewer's demand and explain whether that demand is necessary for the claim or its intended reader. The introduction limits the task; it does not excuse unsupported promises or failures to deliver them.
+
+Old reviews are historical leads. Re-establish their applicability to the current version and goal; do not reopen a generic research question merely because it appeared in an earlier report. Agreement between agents is not the main session's independent judgment.
+
+Do not pass an unevaluated disagreement to the author. First settle what the available source can settle. Ask only for an actual author choice, a reserved approval on a concrete candidate, or a necessary fact still missing after checking; include the source, what is known, your reasoned conclusion and the remaining decision. Evidence that is genuinely missing stays missing, rather than becoming a fabricated verdict.
+
 ### 6.1 Investigate the mechanism of a reported misreading
 
 Check the exact reviewed version, input fidelity, quotation and context. A broken extraction, old file or omitted material can invalidate a specific criticism; demonstrate that causal link rather than treating a label as an exemption. A misleading abstract, ambiguous reference or poorly placed condition can still cause a real error even when the reviewer skimmed or paraphrased incorrectly.
