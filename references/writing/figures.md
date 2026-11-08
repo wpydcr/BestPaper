@@ -108,36 +108,15 @@ common failure forms.**
 - Test: convert the figure to grayscale. Are the distinctions that would change the
   conclusion still legible?
 
-### 2.3 Evidence status and relation type must be encoded explicitly
+### 2.3 Show the relation the visual actually asserts
 
-This is the layer of the visual hierarchy that collapses most easily and costs most when
-it does.
+Identify whether an arrow or link means data flow, order, containment, dependency, mechanism, association, evidential support or another defined relation. A shared legend can explain repeated relations; labels need not clutter every edge.
 
-- **Not reported, not applicable, not satisfied, partially satisfied, verified and refuted
-  must not be flattened into the same blank or cross.** A single check/cross cannot express
-  the difference between claimed / supported / derived / not reported / not applicable /
-  refuted. Folding "not reported" into "non-compliant" is an error that changes the
-  conclusion, and no amount of table completeness recovers it.
-- **State semantics matter more than the palette**: define each state's decision threshold
-  first, then choose symbols and colors.
-- **Arrows must state the relation type**: mechanism, correlation, hypothesis, or direct
-  evidence. A relation arrow with no evidence-strength encoding reads as established
-  causation. That is visual overclaiming.
-- **Never fabricate data when drawing an abstract object.** Do not invent concrete values
-  to make it look like a measurement: the reader's first reaction is "where do these
-  numbers come from", so the figure not only fails to help but creates a new attack
-  surface. Draw the object's geometry schematically, label the axes as qualitative, and
-  state in the caption that the coordinates are qualitative only (**[English
-  manuscripts]** write `Axes are qualitative`; Chinese manuscripts use an equivalent
-  phrasing).
-- When a figure mixes evidence tiers (hypothesis, derivation, author synthesis, direct
-  measurement, external validation), they **must be encoded explicitly** (solid vs. dashed
-  lines, a dedicated Gap box, an explicit label saying the object is a hypothesis rather
-  than an established finding; **[English manuscripts]** label form such as `Hypothesis,
-  Not Established Finding`, with an equivalent phrasing in Chinese manuscripts). Readers
-  must not be left to reconstruct the epistemic status from the body text. A visual object
-  may actively take on the duty of **counteracting overclaiming**; that is one of its
-  legitimate uses.
+When a visual asserts causation, inference or mixed evidence status, distinguish established evidence, association and hypothesis where that distinction changes interpretation. A data-flow arrow is not automatically a causal claim, and a process diagram need not invent evidence-strength styles. Verify the depicted relationship against the actual method or data, not merely against nearby prose.
+
+Keep not reported, not applicable, negative and verified outcomes distinct when they imply different conclusions. Define the state semantics before choosing symbols or colors. For mixed evidence, a legend, line style or explicit label can distinguish hypothesis, derivation and observation without prescribing a particular palette or adding a mandatory box.
+
+Do not fabricate measured values for a schematic. Draw qualitative geometry when appropriate and identify qualitative axes or coordinates in the caption, for example “Axes are qualitative”. Necessary numerical examples may remain when their illustrative identity and role are clear.
 
 ### 2.4 Visual grammar reuse
 
@@ -340,8 +319,8 @@ appendix.
 6. The visual encoding exceeds what is reliably legible at final size.
 7. A figure and a table repeat the same evidence and deleting one loses no independent duty.
 8. The sample is too small, yet percentages, bars or rankings manufacture an air of stability.
-9. Relation arrows do not state whether they mean mechanism, correlation, hypothesis or direct
-   evidence.
+9. The actual relation of an arrow is unclear (for example data flow, order, dependency or inference), or an inferential claim hides an evidence distinction needed by the reader.
+
 10. The body never uses the figure's encoding and never extracts cross-row patterns from the
     table.
 11. A simple dichotomy or a few linear steps could be expressed losslessly in one sentence, and

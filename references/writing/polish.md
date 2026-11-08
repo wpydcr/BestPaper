@@ -105,20 +105,7 @@ Long sentences and deeply nested clauses are candidates for inspection, not auto
   **Boundary**: verbatim quotation, string and identifier literals, and the
   venue's own citation and typographic conventions are not in scope.
 
-- **2.14 Formulaic paragraph closers.** A closing sentence that reassembles what
-  the paragraph already said, inside a frame that would fit unchanged under the
-  neighbouring paragraphs, adds a sentence and no step. **Watch**: `Taken
-  together, ...` is the type case, with `In summary`, `Overall`, and
-  `Collectively, these results show` in the same family; what is flagged is the
-  frame recurring paragraph after paragraph, not one occurrence of the words.
-  **Test**: move the closer under the previous paragraph. If it fits there too,
-  it states nothing this paragraph produced. **Boundary**: `argument.md`
-  G.4 requires every paragraph to end on an intermediate conclusion the reader
-  can restate, and that conclusion is what this item exists to protect. The
-  defect is the formula, never the conclusion: a closer carrying something the
-  paragraph earned and the next paragraph needs stays, whatever words it opens
-  with, and an empty one is rewritten into the conclusion G.4 asks for rather
-  than merely deleted.
+- **2.14 Formulaic paragraph closers.** Inspect repeated recap or preview formulas in context. A useful judgment can begin with “Taken together”; the words alone are not a defect. Remove an empty closing sentence when it adds no reader value. State an intermediate judgment when the argument needs one; definitions, parallel evidence and method steps need not invent a conclusion to satisfy a pattern. Recheck the actual relation to the next paragraph under argument G.4.
 
 ### Layer 3: do not overcorrect (must be preserved)
 
@@ -177,45 +164,11 @@ Evidence visibility, warranted confidence, readability, clear organization and a
 
 The original study conditions and numerical scoring notes are retained in [optional background](background/polish-study-notes.md). They are not mandatory priorities or a prediction of acceptance. Actual scientific and reader outcomes govern the revision.
 
-### 2.3 Executable polishing priorities
+### 2.3 Select polishing work from demonstrated reader needs
 
-**Applicability (read this before the order)**: the order comes from Source 2's
-measurements, whose scope limits and no-promotion rule are §3 item 8's. These six
-rank priorities among implementations the hard rules and Source 1 already allow,
-and none of them is a reason to skip a polishing action.
+After the author starts final polishing, choose improvements from the current text: evidence visibility, warranted confidence, accurate scope, comprehensible wording and appropriate register. The background study does not set a universal priority order, require every dimension to change, or show that a new manuscript will benefit.
 
-1. **First priority is evidence framing**: make every comparison state which
-   method against which baseline, on which dataset, metric, and evaluation
-   condition; make figure and table captions and the results prose independently
-   readable; put existing empirical patterns, margins, and consistency where they
-   are visible. This runs with Layer 4 and hard rule 1.6 (an advantage must be
-   stated, not left for the reviewer to discover); all three sources agree.
-2. **Second priority is not undercutting the novelty stance**: where the evidence
-   already supports a claim, do not phrase it hesitantly or indirectly. This
-   permits removing unnecessary softening **only within what the evidence
-   supports**; it never permits upgrading to a claim beyond the evidence (Layer
-   2.1 and Layer 3 are hard constraints).
-3. **Third priority is scope framing that is not over-narrow**: do not bind the
-   conclusion tighter than the evidence. Consistent with hard rule A.9: necessary
-   boundaries are kept accurately and positively where each claim's reader needs
-   them, without repetitive tightening that changes no judgment.
-4. **Do not spend effort on lexical complexity or technical register**: Source 2
-   measures the effects as small and unstable, while Layer 2.11 and hard rule G.7
-   require the opposite direction (lower load, splitting where the cold read finds
-   a break). The positive
-   rewrites of these two dimensions are **not adopted** in this system.
-5. **Do not iterate for score**: Source 2's limited experiment found little gain
-   after the second pass and worse average outcomes with review feedback. This
-   observation sets no pass limit. Finish the agreed text coverage, check actual
-   readability and semantic preservation, and stop when substantive polishing
-   duties are met; neither two passes nor a higher score establishes completion.
-6. **Touch a high-quality draft less**: high-scoring drafts tend to fall after
-   rewriting, so the expected value of a large rewrite is negative. **This drop
-   may partly be scale boundary and regression to the mean** (the authors' own
-   caveat, §2.2). This item therefore forbids only **whole-draft rewriting done
-   to chase a score**; it is not a reason to skip routine polishing. Problems
-   identified by the hard rules and Source 1 are fixed regardless of how good the
-   draft already is.
+Do not increase lexical complexity or technical register merely to chase reviewer scores. Do correct a demonstrated vocabulary or register mismatch when it obstructs the target reader. Preserve correct strong passages. Stop when the authorized reader-facing work is complete; a fixed pass count or higher score is not acceptance.
 
 ### 2.4 Ethical boundary (Source 2's explicit statement, binding)
 
@@ -236,7 +189,7 @@ Current author instructions, academic correctness and the writing-guide govern u
 Preserve genuine strengths, warranted claims, necessary scope and the author's valid voice. Do not add false balance, generic disclaimers or empty praise. Do not suppress an actual evidence problem to preserve tone. For disagreements, inspect the concrete reader task and evidence through the shared audit workflow rather than a second source-precedence ladder.
 ## 4. Terminology unification
 
-This section supplies the terminology check for `SKILL.md` "修改落地后" and
+This section supplies the terminology check for the entrypoint revision loop and
 "独立阅读、送审与停止". It is the systematic form of the elegant-variation item
 in Layer 1.
 

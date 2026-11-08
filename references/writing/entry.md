@@ -19,12 +19,14 @@ Establish venue-specific regularities from actual comparable papers, keep the sa
 
 Use these methods to test whether the actual opening helps its reader. Active requirements remain in writing-guide; these methods do not create an additional authority hierarchy.
 
-### The argument spine shared by strong entry sections (Source A)
+### One useful spine for evaluation and systematization entries (Source A)
 
 > Get the reader to grant a real problem; show why existing knowledge cannot
 > support some important judgment; state what new analytical capability this
 > paper builds; prove that capability with the strongest result; convert that
 > result into a new judgment for research, evaluation, or deployment.
+
+This is one observed route, not a requirement that every paper build an analytical capability or critique existing evaluation.
 
 Real "elevation" is not making the claim bigger. It answers: **who can now make
 what judgment that could not be made reliably before.**
@@ -58,8 +60,7 @@ to understand the main findings and judge, on the evidence, why they matter.
   definition moved forward or the sentence rewritten, and **readers must not be
   expected to re-read**.
 - After drafting, have someone unfamiliar with the paper read it once and answer
-  five questions: what does the paper study; what is inadequate about current
-  evaluation; what did the paper do; what is the core conclusion; why does that
+  five questions: what does the paper study; what actual question, gap or uncertainty the work addresses; what did the paper do; what is the core conclusion; why does that
   conclusion matter. If they cannot answer accurately the abstract fails, and
   **"it becomes clear once you read the paper" must not be used as an excuse**.
 
@@ -94,11 +95,8 @@ establish, subject to:
   main finding and its evidence → the theoretical, evaluative, design, or
   practical judgment that finding changes. This is an argument function, not a
   fixed sentence count.
-- **Grant current practice its legitimate use first**, then say what it cannot
-  support. State what current practice or existing knowledge measures and why it
-  is useful; do not write prior work as obviously wrong. The value comes from
-  "the existing evidence cannot support a stronger judgment", not from "this
-  area is important".
+- **When criticizing existing practice**, represent its legitimate purpose and evidence fairly, then identify the specific limitation relevant to this work. A paper about a new capability, lower cost, dataset or theoretical relation need not claim current evaluation is defective. Choose the opening from the real research question, not a universal criticism template.
+
 - **When the core contribution is reorganizing or re-evaluating existing
   evidence rather than adding one isolated result, the abstract must carry one
   extra layer of methodological necessity**: which missing definitions,
@@ -246,103 +244,21 @@ Show the result and its significance clearly. Put detailed mechanisms and proofs
 background, the gap named by the motivation, the method actually used, and the
 results reported in the abstract and body must all point at the same problem.
 
-### 3.2 The introduction must open on an evidence chain (method derived from prior guidance)
+### 3.2 Build an entrance from the manuscript's actual contribution
 
-Enter from domain facts the target reader already knows and the literature can
-support, not from this paper's own terminology, taxonomy, notation, formal
-counterexamples, or comparison worlds. A reliable general order:
+Establish enough context for the reader to understand the question, the work and its significance. Possible routes include a costly limitation, an unresolved theoretical question, a missing resource, a surprising observation, incompatible evidence, or a mismatch between evaluation and deployment. Choose the route that the evidence actually supports. Neither a prior-work conflict nor a fixed point at which to introduce the paper is compulsory.
 
-> domain consensus and real-world context → current practice or evaluation →
-> the conflict existing evidence exposes → the real cost of the wrong judgment →
-> the key task existing research cannot complete → this paper's approach → core
-> result → contributions
+For an evaluation critique, explain what existing measurements establish, what stronger judgment they fail to support, and what evidence reveals that gap. For a method or resource paper, show the task, practical or scientific limitation, and what the contribution enables. These are functional examples, not templates to force onto other genres.
 
-This fixes **information dependency**, not a paragraph count: each item must
-rest on one a stranger can already understand. Four checks on the opening:
+### 3.3 Make the value visible through evidence
 
-1. **Say why current practice is reasonable first.** Do not write prior work as
-   obviously wrong; state accurately what problem it solved and what it measured.
-2. **Then give a conflict strong enough to change the judgment.** After the
-   turn, evidence or logic must show the prior results cannot support the
-   stronger conclusion a reader would naturally draw.
-3. **Severity comes from consequences.** Say what wrong comparison, wrong
-   deployment, wrong guarantee, or misallocated resource a wrong inference
-   causes; **do not substitute `important`, `critical`, `significant` for the
-   argument** (word examples [English manuscripts]).
-4. **The paper enters last.** Introduce the framework, taxonomy, method, or
-   theoretical tool only after the problem, the consequences, and the gap stand.
+State the strongest supported finding and why it changes a reader's knowledge or options. Introduce prerequisites when needed; do not bury the finding in a contribution list or add an unsupported claim that prior practice is wrong. Keep unfavorable evidence that changes the interpretation.
 
-**Opening forms (Source B, form reference)**: the most robust entry is a domain
-fact or accepted background (this object is infrastructure or a core component;
-this practice is already successful; this class of risk is widespread; this
-class of system is deployed at scale). **A specific incident, market figure, or
-individual case is usually wrong as the first sentence**; it belongs in the
-second half of the opening paragraph or the second paragraph, where it cashes
-abstract importance into evidence. Special entries (a direct question, an
-imagined scenario, a professional role's viewpoint, a short reversal judgment)
-show only that such writing is possible, not that it beats a direct factual
-entry; when the reader first needs to understand what current practice measures,
-**an abstract counterexample or rhetorical question is the wrong opening**.
-Measure proportions in a relevant target-venue sample when the decision needs them.
+### 3.4 Explain the actual gap
 
-### 3.3 Seven argument types for introduction value (Source B, form induction)
+A gap may concern cost, accuracy, explanatory power, coverage, access to data, unresolved mechanisms, theory or comparability. Specify the affected question and how this work addresses it. Merely saying a topic is important or understudied is weak; requiring every paper to expose inconsistent definitions or broken evaluation is also wrong.
 
-Value rarely rests on "this is the first taxonomy of X" alone; strong papers
-usually combine several of:
-
-| Type | Core logic | Typical effect |
-|---|---|---|
-| Contradiction | Two established facts cannot both be explained by current understanding | Widely adopted, yet the key question is barely studied |
-| Incomparability | Datasets, metrics, definitions, assumptions, or setups differ | Nobody can fairly judge which method is better |
-| Illusion | Results hold under simplified conditions and fail under real ones | Reported high performance may be an artifact of the environment |
-| Intractability | Object count, system heterogeneity, or design space is too large | Exhaustive experiments are infeasible; a model or common framework is required |
-| Misalignment | The community optimizes the wrong target, or one already solved elsewhere | The contribution becomes a reordering of the research agenda |
-| Scale | Study counts, adoption rates, defect or omission shares quantify the problem | The gap turns from an opinion into a citable result |
-| Consequence | The gap causes wrong choices, wrong decisions, or false assurance | Explains why the problem is worth solving |
-
-The strongest value chain is not "the field is important, therefore a survey is
-needed" but: **current evaluation looks sound but supports wrong judgments under
-some real conditions; existing research lacks a unified way to detect that; this
-paper supplies it and shows which conclusions it changes.**
-
-### 3.4 Write the gap as a task that cannot be completed (method derived from prior guidance)
-
-`existing work is fragmented`, `a unified understanding is lacking`, `there
-remains room for improvement` (sentence examples [English manuscripts]) describe
-a state and prove no necessity. An effective gap must answer: because which
-definitions, evidence, setups, or comparison conventions are unaligned,
-researchers or practitioners **currently cannot make** what judgment or take what
-action. Common valid forms:
-
-1. Cannot compare existing methods fairly.
-2. Cannot tell whether experimental results transfer to real deployment.
-3. Cannot separate real improvement from artifacts of data, environment, or
-   evaluation setup.
-4. Cannot infer the whole-system conclusion the paper or practice needs from
-   local measurements.
-5. Cannot predict new objects or scenarios without experimenting on each.
-6. Cannot identify the common root cause of a class of failures.
-7. Cannot reproduce experiments or determine the boundary of a conclusion.
-
-For a claimed structural gap or a claim that systematization is necessary, apply the following test:
-The gap must then explain **why adding one more isolated experiment would not
-resolve it**. If the root cause is inconsistent definitions, metrics,
-assumptions, baselines, time ranges, or evidence objects, a common analytical
-framework or systematic re-analysis is required. Four general arguments:
-
-1. **Existing results are incomparable**: separate definitions, private data, and
-   different metrics mean a new experiment adds one more coordinate rather than
-   unifying the old ones.
-2. **Exhaustive validation is infeasible**: too many combinations of objects,
-   components, and paths; only abstraction from existing evidence scales.
-3. **The literature's own volume is the obstacle**: hundreds of papers all claim
-   improvement and practitioners cannot adjudicate them one by one.
-4. **What is missing is a common language**: many local results exist, but
-   definitions, assumptions, time ranges, and claim strengths share no
-   coordinate system.
-
-**Reverse gate**: if the root cause is simply a missing experiment, do not
-package an ordinary experimental question as a structural gap.
+Systematization papers may need to explain why one more isolated experiment would not resolve their synthesis question. Apply that diagnostic to that type of contribution, not to every manuscript.
 
 ### 3.5 Evidence and citations in the introduction (method derived from prior guidance)
 
@@ -367,8 +283,7 @@ stronger or broader conclusion.
 
 ### 3.6 Concept order and paragraph load (method derived from prior guidance)
 
-One paragraph advances one main level of abstraction and ends on a restatable
-intermediate conclusion. **A single paragraph must not simultaneously define the
+One paragraph has a clear reader duty and a manageable level of abstraction. End with a judgment when the argument needs one; definitions and independent evidence may simply finish their duty. Do not manufacture a conclusion or a derivation to the next paragraph. **A single paragraph must not simultaneously define the
 object of study, the system boundary, the taxonomy, the comparison baseline, the
 time range, the stakeholders, and the formal conclusion.**
 

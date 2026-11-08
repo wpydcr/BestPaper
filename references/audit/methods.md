@@ -87,13 +87,11 @@ This reference supplies methods, not a second execution workflow. Use writing-gu
   readability sweep for long, tangled sentences and rare words;
   **simulated review at the target venue** (open the delivered artifacts as a reviewer
   would and look for gaps between what the paper claims and what is actually there).
-- **"Simulated review" and content audit catch two disjoint error classes.** Audit roles
+- **Reviewer-perspective and content checks have overlapping but complementary purposes.** Audit roles
   catch **false beliefs inside the text** (sentence vs. sentence, table vs. proposition,
   body vs. record). A reviewer catches **the gap between the paper's claims and the
   delivered artifacts** (open the supplementary material and what you see does not match
-  what the paper says). No path of the first kind ever reaches the second: the first
-  run of simulated review surfaced problems that thirty-plus consecutive content-audit
-  rounds had never touched.
+  what the paper says). Explicitly opening delivered artifacts can expose gaps missed by text-only review. Internal audits may also check these artifacts; define actual coverage rather than claiming the error classes are disjoint.
 - **Reviewer-perspective and attacker-perspective roles manufacture defensive suggestions by
   construction**: their value function is "could a reader raise a doubt", which does not
   point where the paper's delivery surface points, so "valid" from them is not "necessary".
@@ -200,32 +198,13 @@ adoption or unlimited new work: changes still pass the validity, fix, value and
 authorization gates. An opinion may reveal a new verification path; being outside
 the scheduled paths is not grounds to ignore it.
 
-### 6.1 An external misreading must first pass the "reproducible by the target reader" test (before any discussion of fixes)
+### 6.1 Investigate the mechanism of a reported misreading
 
-**A reviewer misread ≠ the paper is wrong.** The first step in judging any external
-misreading is fixed: **would this misreading mechanism occur in a target reader?**
-No → not a defect, ruling is "overturned", discussion ends there.
+Check the exact reviewed version, input fidelity, quotation and context. A broken extraction, old file or omitted material can invalidate a specific criticism; demonstrate that causal link rather than treating a label as an exemption. A misleading abstract, ambiguous reference or poorly placed condition can still cause a real error even when the reviewer skimmed or paraphrased incorrectly.
 
-The most common non-reproducible mechanism is a **reading-pipeline difference**: LLM
-reviewers read the PDF through **text extraction**, human reviewers read the **rendered**
-version. Extraction artifacts (inline subscripts split onto their own line, misplaced
-super/subscripts, normalized apostrophes and hyphens) simply do not happen in the
-rendered version. Same family: the reviewer read only the abstract and conclusion; the
-reviewer read an old version; the reviewer's paraphrase does not match the source
-(misquotation). None of these are the paper's problem.
+Separate two decisions: whether the criticism is justified by the actual paper, and whether the current expression still creates a likely misunderstanding for the intended reader. Read the passage without the diagnosis first, then test the specific interpretation. Do not claim the whole paper is correct because one criticism came from corrupted input.
 
-**Watch for this inversion**: after confirming "source correct + rendering correct +
-extraction alone broken", **that evidence proves the paper is not wrong**, yet it reads
-extremely easily as "so change it, to stop it being misread". The moment you argue about
-eliminating the cause, you are optimizing the proxy metric "stop the review tool
-misreading" instead of the user outcome "let real readers understand correctly". The cost
-is real: reshaping formulas or notation to suit an extraction pipeline consumes page
-budget and can introduce a one-off convention unique in the paper.
-
-**Boundary**: extraction robustness is a real requirement only when the target channel
-explicitly uses LLM-assisted first-pass screening. Even then it is handled as a
-submission-engineering item (compile-time check); it does not enter the content audit
-and does not consume page budget.
+Use the representation required by the task, including rendered pages, accessible text or machine-readable material when relevant. If only an extraction pipeline is broken and the intended artifact is sound, repair the pipeline for review instead of distorting the scientific notation. Report which input and judgment remain unverified.
 
 ### 6.2 Value ruling: valid ≠ worth changing (the evaluation step's third ruling)
 
@@ -251,8 +230,7 @@ the reader form which false belief, or miss which step of the argument", it is a
 substantive contribution however few words it is.
 
 **Division of labor with §7**: §7 (the over-auditing gate) stops **false problems**:
-counterexamples only a formalist could construct, defensive additions in the name of
-transparency. This section stops **the real problems not worth fixing**: the problem
+hypothetical obligations unsupported by the actual claim and task. This section stops **the real problems not worth fixing**: the problem
 exists, but fixing it makes no observable difference to the paper. Both gates must be
 passed.
 
@@ -321,8 +299,7 @@ The local view's two failure modes: adding a qualifier in place (hits the
 over-defensiveness gate), or rewriting in place (creates a new dialect). Asking "how is
 this assertion phrased elsewhere" first often finds the correct version already exists,
 degrading the fix to a zero-cost alignment. This matters most when an external reviewer
-calls a sentence "too strong" or "unclear": **the reviewer's location is usually right and
-the diagnosis usually wrong**, so fixing by the reviewer's diagnosis fixes the wrong thing.
+calls a sentence "too strong" or "unclear": **neither the location nor the diagnosis is automatically correct**. Check both against the actual passage before adopting a repair.
 
 ## 9. Strict separation of page budget from correctness/improvement
 
@@ -343,8 +320,7 @@ the diagnosis usually wrong**, so fixing by the reviewer's diagnosis fixes the w
   using the real submission rules and the relevant rendered version. Repeating a
   build for every content pass is not an acceptance condition. A content audit does
   not silently become a compression task; when compression is authorized, preserve
-  meaning and assess deletion cost under writing-rules chapter 6. The current
-  routing is `SKILL.md` "专业验收不能丢", not a separate delivery-to-audit return loop.
+  meaning and assess deletion cost under writing-rules chapter 6. Execution scope is maintained in [routing.md](routing.md); no separate delivery-to-audit return loop is imposed here.
   Never add content merely to fill an observed shortfall.
 
 ## 10. Table criteria
@@ -355,10 +331,8 @@ the diagnosis usually wrong**, so fixing by the reviewer's diagnosis fixes the w
   the header must be true of it; a cell with its own subject treats the header as a mere
   column label. **Before changing a header, count how many cells are borrowing their
   subject from it.**
-- **A conjunction cannot be tabulated row by row**: if the truth of the row or column to
-  be added depends on several other rows holding simultaneously, its place is prose.
-  Table rows are parallel by construction, and "A and B and C" crammed into one row loses
-  the "and".
+- **Make joint conditions explicit**: a table can represent conjunction, alternatives or independent cases if headers, grouping and notes make the relation unambiguous. Do not let parallel rows imply independence when the claim requires several conditions together. Use prose when it communicates the relation more clearly.
+
 - **Adding a block header appends an implicit subject to every subject-less cell below
   it**; re-run the subject test cell by cell before adding one.
 - **A table finding must trigger a full-table family sweep on the spot**: when the finding
@@ -391,8 +365,7 @@ evidence of repair, preserved value and no unresolved required work.
 
 ### 11.1 Pipeline parallelism (how parallel execution goes wrong)
 
-Dispatch boundaries and dependencies follow `SKILL.md` "准备派发或改稿时";
-post-edit checks follow "修改落地后". This section supplies concrete failure modes
+Dispatch boundaries, dependencies and post-edit checks follow [routing.md](routing.md) and the entrypoint revision loop. This section supplies concrete failure modes
 for applying those nodes, not a second mandatory schedule.
 
 - **Parallel preparation** may use a fixed version when its premises and write scope
@@ -458,7 +431,7 @@ An ordinary suspended task can resume when its inputs and premises remain valid.
   at sentence start, repetition within ten lines above, and tense breaks at the insertion
   point.
 - Unique filenames for concurrent writes, non-empty output checks and the networking
-  discipline support `SKILL.md` "准备派发或改稿时" and "修改落地后": give each
+  discipline support the shared dispatch and post-edit checks: give each
   concurrent temporary artifact a unique path and verify actual returned content.
 
 ## 14. Boundaries for verifying records and supplementary material
@@ -482,11 +455,7 @@ scope.
   in the same place: "the named ones count correctly" and "there is a problem here" are
   each half right, and the next round easily uses the former as a shield to suppress the
   latter (the exempt-zone form of §5). **Only running both directions counts as checked.**
-  The fix location for a reverse-direction gap is constrained by the citation hierarchy
-  (body → appendix → supplementary material; the introduction point can only be on the
-  appendix side). **That hierarchy holds only when both an appendix and supplementary
-  material exist**; short papers with no appendix (journal letters, workshop papers) do not
-  fit it, and the location is judged by whatever levels actually exist.
+  Choose the reference location where the reader needs the material. A body claim may point directly to a supplement; an appendix may carry detailed navigation. Existing appendix and supplement files do not impose a mandatory body-to-appendix-to-supplement chain.
 - **Archived data is a historical snapshot, not current truth**: writing back from an
   archive requires overlaying every ruling made after the archive, and re-checking each
   borderline instance against the rules.

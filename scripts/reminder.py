@@ -97,28 +97,48 @@ def main():
             event = payload.get('hook_event_name')
         path, normalized = state_path(session_id, cwd)
         prefix = path.name.split('-')[0] + '-'
+        now = time.time()
+        if args.command == 'disarm' or event in ('UserPromptSubmit', 'SessionEnd'):
+            paths = list(path.parent.glob(prefix + '*.json'))
+            if event != 'UserPromptSubmit' and path not in paths:
+                paths.append(path)
+            changed, failed, current = False, False, None
+            # 停用逐文件处理：坏状态不能阻止其他已验证状态撤销授权。
+            for item in paths:
+                try:
+                    state = load(item, session_id, normalized if item == path else None)
+                    if state is None:
+                        if item != path or event == 'UserPromptSubmit':
+                            continue
+                        state = {'session_id': session_id, 'cwd': normalized,
+                                 'active': False, 'last_reminder_at': now}
+                        save(item, state)
+                    elif state['active']:
+                        state['active'] = False
+                        save(item, state)
+                        changed = True
+                    if item == path:
+                        current = state
+                except (OSError, ValueError, TypeError) as error:
+                    failed = True
+                    print(f'BestPaper reminder: 停用未全部确认；{item}；'
+                          f'{type(error).__name__}：{error}', file=sys.stderr)
+            if failed:
+                return
+            if args.command == 'disarm':
+                print(json.dumps(current, ensure_ascii=False))
+            elif event == 'UserPromptSubmit' and changed:
+                emit(event, f'新消息已暂停旧论文提醒；当前 session_id={session_id}；cwd={cwd}。'
+                     '若仍是同一已授权论文任务请 arm，其他任务保持停用。')
+            return
         # 只读取本会话状态；项目改变不能产生新的隐式授权。
         states = {item: load(item, session_id) for item in path.parent.glob(prefix + '*.json')}
         state = states.get(path)
         if state is not None and state['cwd'] != normalized:
             raise ValueError('提醒状态身份不符')
-        now = time.time()
         if args.command == 'status':
             print(json.dumps(state or {'session_id': session_id, 'cwd': normalized,
                                        'active': False, 'last_reminder_at': None}, ensure_ascii=False))
-            return
-        if args.command == 'disarm' or event == 'SessionEnd':
-            pause_session(states)
-            state = state or {'session_id': session_id, 'cwd': normalized, 'last_reminder_at': now}
-            state['active'] = False
-            save(path, state)
-            if args.command == 'disarm':
-                print(json.dumps(state, ensure_ascii=False))
-            return
-        if event == 'UserPromptSubmit':
-            if pause_session(states):
-                emit(event, f'新消息已暂停旧论文提醒；当前 session_id={session_id}；cwd={cwd}。'
-                     '若仍是同一已授权论文任务请 arm，其他任务保持停用。')
             return
         if args.command == 'arm':
             read_prompt()

@@ -10,7 +10,7 @@ The active preference is maintained in writing-guide G25. Check the exact em-das
 
 ## Preamble G: the reader's stepwise understanding has the highest priority
 
-Every rule in this file is subordinate to this preamble. Academic correctness, evidential honesty, and reproducibility are the floor and are never traded away. Above that floor, as long as the truth of the conclusions, the meaning of the evidence, and the reproducibility of the method are unchanged, brevity, completeness, formalization, style, defensiveness, layout, and author preference all yield to a stranger's single-pass understanding.
+Use these methods under the current author scope, verified venue requirements and writing-guide. Academic correctness, evidence and reproducibility are not traded away for style. Improve the target reader's understanding using the representation suited to this manuscript; this method does not override the author's current instructions.
 
 ### G.1 A paper is a path to understanding, not an inventory of knowledge
 
@@ -32,24 +32,15 @@ Check every sentence:
 
 Any concept that can only be understood by reading ahead is a forward-comprehension failure. Defining it later, explaining it again, or adding a summary does not repair the break that already happened at first occurrence.
 
-### G.3 A new concept must earn the right to appear
+### G.3 Introduce concepts when their role is needed
 
-Before introducing any term, symbol, taxonomy, comparison, or formal object, all four questions must have answers:
+For a new term, symbol or formal object, ask what it represents, why the current or forthcoming argument needs it, what earlier knowledge lets the reader understand it, and whether an established term would suffice. These are diagnostics, not four mandatory novelty claims. A definition may prepare a later proof without producing an immediate result; state its role and avoid unexplained stacks of names.
 
-1. What concrete problem in the earlier text makes the reader need it now?
-2. Which already-visible ambiguity does it remove, or which two already-introduced objects does it separate?
-3. What judgment can the reader make after it is introduced that they could not make before?
-4. Will later text actually use it to carry argumentative work?
+### G.4 Make the relation between paragraphs real and legible
 
-If any of the four has no answer, the object must not be written into the current paragraph merely because it exists in the research plan, the code table, the formal model, or the author's notes. Simple objects also need a reason to appear; complex objects especially cannot substitute "we will use it later" for an explanation now.
+Consecutive paragraphs may develop a derivation, provide independent evidence for one question, compare alternatives, define an object, partition cases, or describe a justified sequence. Identify the relation that actually holds. Only an asserted inference needs to follow from the previous premises; parallel evidence need not be derived from one another.
 
-### G.4 Consecutive paragraphs must stand in a derivation relation
-
-Sharing a topic is not being logically connected. Two paragraphs about the same field, system, or set of terms may belong in the same paper, but that does not show the second was produced by the first.
-
-Each paragraph advances one main question. It opens by taking up a fact, contradiction, or open question the text has already established; it does the necessary explaining or arguing; and it ends on an intermediate conclusion the reader can restate, which creates a definite need for the next paragraph. Any sudden announcement that "several cases are needed", "several categories exist", "we now compare", or "this yields a framework" must first say why one comparison, one category, or the existing formulation is insufficient, and what each added structure answers.
-
-Connectives cannot fake a derivation. Adding "therefore", "moreover", "next", or a vague transition improves surface cohesion only; it does not supply the missing causal, comparative, identifying, or argumentative relation.
+Each paragraph has a reader duty. Its ending may state a supported judgment, finish a definition or method step, or simply stop once that duty is complete. Do not add a summary or preview solely to imitate PEAL. Check missing relations in context; a connective cannot manufacture causation, support or a reason for a new category.
 
 ### G.5 Separate the domain model from the reading model
 
@@ -59,7 +50,7 @@ Writing is not serialization of the domain model. Fix the question the reader ne
 
 ### G.6 Structural feedback must not be patched locally
 
-"Abrupt", "I do not follow", "I had to read it several times", and "I do not see why this is being analyzed" are usually not a problem with one word or one connecting sentence: the reader's path of understanding has broken. On such feedback, restore the reader's knowledge state from the start of the section or paragraph and re-check how the problem arises, why the concept appears, and how the conclusion follows. Adding one more sentence at the point of complaint is not a fix.
+"Abrupt", "I do not follow", "I had to read it several times", and "I do not see why this is being analyzed" are usually not a problem with one word or one connecting sentence: the reader's path of understanding has broken. On such feedback, restore the reader's knowledge state from the start of the section or paragraph and re-check how the problem arises, why the concept appears, and how the conclusion follows. Adding a sentence without finding the missing relation is not sufficient; a short supported bridge can be the right fix when that is the actual gap. Choose the necessary scope, not a mandatory rewrite size.
 
 If the problem keeps migrating among definitions, paragraph links, abstract wording, and comparison relations, the method that generated the passage is wrong. Rebuild the logical chain instead of eliminating the newest symptom. Effort already invested in the previous round is not a reason to keep the current structure.
 
@@ -71,16 +62,9 @@ Readability verification must use a forward cold read: the reader starts from a 
 
 When using an independent reader, confirm they are reading the current version and ask them to look for breaks in understanding rather than deliver a general verdict. Their comments are themselves checked item by item against the current text; a reader's judgment is not an exemption from verification.
 
-### G.8 Order of adjudication when rules conflict
+### G.8 Resolve conflicts through the shared criteria
 
-When rules conflict, adjudicate in this order:
-
-1. Do not change the truth of the conclusions, the meaning of the evidence, or the reproducibility of the method
-2. Ensure a stranger can understand the text in one forward pass
-3. Keep the argumentative chain complete and strong
-4. Only then optimize brevity, rhythm, style, visual form, length, and defensive explanation
-
-Do not pile up conditions the reader does not yet need in the name of rigor, and do not delete a qualifier that changes the conclusion in the name of readability. Real clarity means the necessary condition appears, in an understandable form, at the moment the reader needs it.
+Use current authorization and writing-guide. Preserve truth, evidence, necessary scope and reproducibility while making the argument understandable. Brevity, rhetorical force and visual form are means, not independent reasons to change a correct passage. If constraints genuinely conflict, show the specific conflict and a supported candidate; do not invent a second precedence hierarchy here.
 
 ## A. Evidence for an audit finding
 
@@ -141,14 +125,9 @@ Local problems get local fixes. That the previous round was too conservative is 
 
 The title and the abstract are the paper's entrance, not the author's compression of the whole text. The reader is the one G.2 defines.
 
-Before pursuing brevity, counterintuitiveness, rhythm, or a hook, show that this reader can answer four questions without reading the body, re-reading, or guessing at terms:
+Before pursuing a hook, check whether the title and abstract fulfill their separate duties. The abstract should identify the research object, actual question or gap, work performed, supported finding and significance without requiring the body. The title need only identify the central topic and contribution or question accurately. Evaluation papers may ask what current evaluation misses; a new algorithm, dataset, historical finding or theoretical result need not invent an evaluation failure.
 
-1. What object does the paper study?
-2. How is it usually assessed by existing work?
-3. What important problem does that assessment miss?
-4. How exactly does this paper close that gap?
-
-If any one is unanswerable, fix the order of information and the definitions first; do not discuss style. A title that only makes sense after reading the paper, and an abstract whose opening can only be reconstructed from its ending, are both entrance failures.
+If the reader cannot recover the relevant object or claim, inspect ordering, definitions and scope. Judge against the manuscript's actual research type.
 
 **Counterintuitiveness is not something the author declares, and tension is not manufactured by sentence structure.** It exists only once the reader understands two facts, sees the surface conflict between them, and knows why that conflict matters for the conclusion. A "hook" that skips these three steps is a slogan.
 
@@ -342,28 +321,13 @@ comparisons were chosen and what statistical results mean for the claim.
 
 This chapter covers the title only. All abstract, introduction, and contribution rules live in `entry.md`. This file does not copy them.
 
-### 4.1 The title must be self-contained
+### 4.1 The title identifies the work and makes an accurate promise
 
-The title's job is not to summarize every contribution, but to let someone who has not read the paper know immediately: what the object of study is, what key relation this work challenges or establishes, and why this paper differs from neighboring work. Foreground the primary finding, method, or resource, while keeping the core words readers in the field would actually search for.
+Use familiar, searchable words to identify the topic and the work's real focus. A result title should state a supported result; a method title should identify the method and task; a resource title should identify the resource and use. A short question can fit an exploratory or result-driven paper when the body answers it. No form is automatically correct.
 
-The title must pass all of the following on its own:
+Check whether the title is distinguishable from neighboring work, understandable without internal notation, faithful to the evidence, and concise enough to scan. Do not require it to contain the object, observed fact, proof, limitation and significance simultaneously. A vague slogan or unexplained system name may fail these duties; fix the concrete failure rather than banning rhetorical forms in general.
 
-1. **Clear object.** Not just an abstract result noun such as bound, evidence, or security; the reader must know whose problem this is and what the problem is.
-2. **Clear relation.** Not two juxtaposed concepts, but what holds between them: distinction, condition, conflict, causation, upper bound, or evaluation gap.
-3. **Recoverable claim.** From the title alone, the reader can say in one plain sentence what the paper most likely proves.
-4. **No dependence on the body.** The title must not require the reader to already know this paper's notation, taxonomy, comparison world, theoretical counterexamples, or internal names.
-5. **Strength matched to evidence.** Use `can` for an existence counterexample and `alone` when the evidence by itself is insufficient [English manuscripts]; do not inflate "cannot be derived under some conditions" into a general negation.
-6. **Searchable.** Keep the object words and problem words readers actually search for; avoid metaphors that are meaningful only to the author.
-7. **Clear but not oversimplified.** Avoid long compound noun phrases, non-standard abbreviations, and jargon, and do not pack in technical detail only experts need. Accuracy comes from stating the relation and the boundary, not from term density.
-
-The following title forms usually fail:
-
-1. Rhetorical questions, puns, or "where X ends, Y begins" constructions. A question weakens a definite claim; puns and metaphors mislead and hurt retrieval.
-2. Elliptical forms such as "X remains unachieved", "the missing link", or "beyond metric Y", because what is elided is exactly the relation the paper needs to explain.
-3. A method or framework name only, with no object of study and no result relation.
-4. A broad question only, with no indication of the answer the paper gives.
-
-A more reliable form writes the key relation out: the object of study, the observed fact, and the conclusion that does not follow automatically from that fact all appear in the title, joined by an explicit relational word (condition, limitation, conflict, causation, upper bound, distinction). This is a requirement on what the title states, not a template to fill in.
+For section titles, choose noun, question or result forms according to current author requirements and the section's role. Verify the title's promise against the actual section.
 
 ## 5. Deletion safety
 
@@ -422,10 +386,7 @@ its source and scope as an observation, not a mandatory floor. Exceeding an offi
 limit prevents submission; being shorter than a corpus baseline does not establish
 a defect or require extra content.
 
-**A shortfall is never closed by adding content**, and whether the body explains enough is an audit question, not a page-count question. Padding, extra defensive text, decorative data, and restated conclusions are barred here by A.4 and A.5. Read the shortfall as a diagnosis instead, in this order:
-
-1. **Did compression overshoot?** Restore load-bearing material cut by actions 1 to 7, most recent cut first. This repairs damage this process did; it is the only action a shortfall authorizes.
-2. **Otherwise?** Leave the space unused. A shortfall that survives into delivery is **reported to the author there, not repaired**: at that point every remaining way to fill it is padding.
+A short page count is not itself a reason to add text. Check whether compression removed necessary material and whether the current reader lacks an explanation, evidence connection or visible contribution. Restore or add supported content when it performs that independently justified duty within authorization; the content need not have existed in an older version. Otherwise leave unused space. Do not invent experiments, defensive prose or repetition merely to reach a corpus average or page-tail target.
 
 ### 6.2 Costing a figure
 

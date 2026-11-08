@@ -193,6 +193,47 @@ class ReminderTests(unittest.TestCase):
         self.assertTrue(result.stderr)
         self.assertEqual(state.read_text(encoding='utf-8'), '{broken')
 
+    def test_stop_continues_after_corrupt_session_state(self):
+        for stop in ('disarm', 'UserPromptSubmit', 'SessionEnd'):
+            for corrupt_current in (False, True):
+                with self.subTest(stop=stop, corrupt_current=corrupt_current):
+                    session = f'{stop}-{corrupt_current}'
+                    old = self.root / session
+                    old.mkdir()
+                    files_before = set(self.root.glob('bestpaper-reminder-v1/*.json'))
+                    self.command('arm', session=session, cwd=old)
+                    self.command('arm', session=session)
+                    files = set(self.root.glob('bestpaper-reminder-v1/*.json')) - files_before
+                    current = next(p for p in files if json.loads(p.read_text(encoding='utf-8'))['active'])
+                    previous = next(p for p in files if p != current)
+                    corrupt, valid = (current, previous) if corrupt_current else (previous, current)
+                    valid_state = json.loads(valid.read_text(encoding='utf-8'))
+                    valid_state['active'] = True
+                    valid.write_text(json.dumps(valid_state), encoding='utf-8')
+                    corrupt.write_text('{broken', encoding='utf-8')
+                    self.command('arm', session=session + '-other')
+                    if stop == 'disarm':
+                        result = self.command(stop, session=session)
+                    else:
+                        result = self.run_script(payload={**self.payload, 'session_id': session,
+                                                          'hook_event_name': stop})
+                    self.assertFalse(json.loads(valid.read_text(encoding='utf-8'))['active'],
+                                     '损坏状态不能阻止正常状态停用')
+                    self.assertEqual(corrupt.read_text(encoding='utf-8'), '{broken')
+                    self.assertEqual(result.stdout, '', '未核实全部状态时不能输出停用成功')
+                    self.assertIn(str(corrupt), result.stderr)
+                    self.assertIn('停用未全部确认', result.stderr)
+                    self.assertTrue(json.loads(self.command('status', session=session + '-other').stdout)['active'])
+                    self.assertEqual(self.command('arm', session=session).stdout, '')
+                    self.assertEqual(self.run_script(payload={**self.payload, 'session_id': session}).stdout, '')
+                    self.assertFalse(json.loads(valid.read_text(encoding='utf-8'))['active'])
+                    self.assertEqual(corrupt.read_text(encoding='utf-8'), '{broken')
+                    # 坏文件移除后，正常状态也不能恢复投递。
+                    corrupt.unlink()
+                    result = self.run_script(['--interval-seconds', '0.01'], payload={
+                        **self.payload, 'session_id': session, 'cwd': valid_state['cwd']})
+                    self.assertEqual(result.stdout, '')
+
     def test_missing_prompt_does_not_claim_armed_or_delivered(self):
         self.prompt.unlink()
         result = self.run_script()
