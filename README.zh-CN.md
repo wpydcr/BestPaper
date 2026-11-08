@@ -33,7 +33,7 @@ tests/test_reminder.py         提醒器行为测试
 
 ## 提醒与停止
 
-Claude正式调用Skill或`/BestPaper`后注册技能级hook；每满30分钟，在下一工具批结束时向当前模型注入[纠偏提醒](references/runtime/reminder.md)。不保证中断纯思考或尚未结束的长工具。Codex按[运行说明](references/runtime/activation.md)使用可用的原生heartbeat，工具不可用须如实说明。提醒不保证模型永远遵守，也不替代实际验证。
+提醒只在进入已授权自动循环时启用，循环结束即停用；读技能或单次改稿不启动。Claude正式调用Skill或`/BestPaper`只注册hook，进入循环时由主会话显式arm，之后每满30分钟，在下一工具批结束时向当前模型注入[纠偏提醒](references/runtime/reminder.md)。不保证中断纯思考或尚未结束的长工具。Codex按[运行说明](references/runtime/activation.md)使用可用的原生heartbeat，工具不可用须如实说明。提醒不保证模型永远遵守，也不替代实际验证。
 
 有依据判断实质性收敛可以停止并交回当前稿、理由与检查范围。最后润色由人工明确决定；基础理解障碍和必要论证修复不等待最后润色。完成、暂停、等待作者或切换任务时关闭提醒。
 

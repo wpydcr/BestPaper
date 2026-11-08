@@ -30,6 +30,8 @@ Load only the task-specific details needed. Method references do not create comp
 
 ## Reminders and stopping
 
+Enable the reminder only when entering an authorized autonomous revision loop, and disable it when the loop ends. Reading the skill, registering hooks, a single edit, or a tool call does not start the timer. Claude requires explicit `arm` at loop entry and `disarm` at exit; Codex creates or resumes the thread heartbeat only at loop entry and pauses it at exit.
+
 Claude registers skill hooks on formal Skill or slash-command invocation. The 30-minute check is injected at the next tool-batch boundary, not as a guaranteed interruption of reasoning or a running tool. Codex uses an available native heartbeat, as described in [activation](references/runtime/activation.md). Verify actual activation rather than assuming it.
 
 The model may stop on supported substantive convergence and return the current complete manuscript, reasons, and verification coverage. Final polishing requires the author's explicit decision. Basic readability and substantive repairs are not deferred to that final stage. Disable reminders when complete, paused, waiting for the author, or changing tasks.

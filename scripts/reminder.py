@@ -36,7 +36,7 @@ def state_path(session_id, cwd):
     normalized = os.path.normcase(os.path.realpath(cwd))
     prefix = hashlib.sha256(session_id.encode()).hexdigest()
     key = prefix + '-' + hashlib.sha256(normalized.encode()).hexdigest()
-    return Path(tempfile.gettempdir()) / 'bestpaper-reminder-v1' / (key + '.json'), normalized
+    return Path(tempfile.gettempdir()) / 'bestpaper-reminder-v2' / (key + '.json'), normalized
 
 
 def load(path, session_id, cwd=None):
@@ -129,7 +129,7 @@ def main():
                 print(json.dumps(current, ensure_ascii=False))
             elif event == 'UserPromptSubmit' and changed:
                 emit(event, f'新消息已暂停旧论文提醒；当前 session_id={session_id}；cwd={cwd}。'
-                     '若仍是同一已授权论文任务请 arm，其他任务保持停用。')
+                     '仅当主会话恢复已授权自动循环时调用 arm，其他任务保持停用。')
             return
         # 只读取本会话状态；项目改变不能产生新的隐式授权。
         states = {item: load(item, session_id) for item in path.parent.glob(prefix + '*.json')}
@@ -156,10 +156,11 @@ def main():
             if states:
                 return
             read_prompt()
-            state = {'session_id': session_id, 'cwd': normalized, 'active': True, 'last_reminder_at': now}
+            state = {'session_id': session_id, 'cwd': normalized, 'active': False, 'last_reminder_at': now}
             save(path, state)
-            emit(event, f'BestPaper 提醒已启用：session_id={session_id}；cwd={cwd}。'
-                 f'每满 {args.interval_seconds:g} 秒，在下一工具批结束时提醒；这不是精确定时器。')
+            emit(event, f'BestPaper 提醒注册就绪但未启用：session_id={session_id}；cwd={cwd}。'
+                 '仅当主会话进入已授权自动循环时调用 arm，循环结束调用 disarm；'
+                 f'从 arm 起每满 {args.interval_seconds:g} 秒，在下一工具批结束时提醒；这不是精确定时器。')
         elif state['active'] and now - state['last_reminder_at'] >= args.interval_seconds:
             text = read_prompt()
             state['last_reminder_at'] = now

@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -41,17 +42,61 @@ class ReminderTests(unittest.TestCase):
     def status(self):
         return json.loads(self.command('status').stdout)
 
-    def test_first_hook_confirms_identity_then_default_interval_is_quiet(self):
+    def test_first_hook_registers_identity_without_starting_reminders(self):
         result = self.run_script()
         context = json.loads(result.stdout)['hookSpecificOutput']
         self.assertEqual(context['hookEventName'], 'PostToolBatch')
         self.assertIn('session-a', context['additionalContext'])
         self.assertIn(str(self.cwd), context['additionalContext'])
         self.assertIn('1800', context['additionalContext'])
+        self.assertIn('未启用', context['additionalContext'])
+        self.assertIn('arm', context['additionalContext'])
+        self.assertFalse(self.status()['active'])
         self.assertEqual(self.run_script().stdout, '')
 
-    def test_due_reads_prompt_from_disk_and_does_not_repeat_early(self):
+    def test_repeated_due_hooks_without_arm_never_send_reminders(self):
         self.run_script()
+        state_file = next(self.root.glob('bestpaper-reminder-v2/*.json'))
+        state = json.loads(state_file.read_text(encoding='utf-8'))
+        state['last_reminder_at'] = time.time() - 3600
+        state_file.write_text(json.dumps(state), encoding='utf-8')
+        for _ in range(3):
+            self.assertEqual(self.run_script().stdout, '')
+            self.assertFalse(self.status()['active'])
+
+    def test_arm_starts_interval_at_loop_entry_not_registration(self):
+        self.run_script()
+        state_file = next(self.root.glob('bestpaper-reminder-v2/*.json'))
+        state = json.loads(state_file.read_text(encoding='utf-8'))
+        state['last_reminder_at'] = time.time() - 3600
+        state_file.write_text(json.dumps(state), encoding='utf-8')
+        before_arm = time.time()
+        self.command('arm')
+        self.assertTrue(self.status()['active'])
+        self.assertGreaterEqual(self.status()['last_reminder_at'], before_arm)
+        self.assertEqual(self.run_script().stdout, '')
+        time.sleep(0.03)
+        result = self.run_script(['--interval-seconds', '0.01'])
+        self.assertEqual(json.loads(result.stdout)['hookSpecificOutput']['additionalContext'],
+                         '测试提醒：执行已授权的修订。')
+
+    def test_legacy_active_state_does_not_grant_loop_authorization(self):
+        normalized = os.path.normcase(os.path.realpath(self.cwd))
+        legacy = self.root / 'bestpaper-reminder-v1' / (
+            hashlib.sha256(b'session-a').hexdigest() + '-' +
+            hashlib.sha256(normalized.encode()).hexdigest() + '.json')
+        legacy.parent.mkdir()
+        legacy_text = json.dumps({'session_id': 'session-a', 'cwd': normalized,
+                                  'active': True, 'last_reminder_at': time.time() - 3600})
+        legacy.write_text(legacy_text, encoding='utf-8')
+        result = self.run_script()
+        self.assertIn('未启用', json.loads(result.stdout)['hookSpecificOutput']['additionalContext'])
+        self.assertFalse(self.status()['active'])
+        self.assertEqual(self.run_script(['--interval-seconds', '0.01']).stdout, '')
+        self.assertEqual(legacy.read_text(encoding='utf-8'), legacy_text)
+
+    def test_due_reads_prompt_from_disk_and_does_not_repeat_early(self):
+        self.command('arm')
         time.sleep(0.03)
         self.prompt.write_text('独立标记：NOW-READ-42', encoding='utf-8')
         result = self.run_script(['--interval-seconds', '0.01'])
@@ -60,7 +105,7 @@ class ReminderTests(unittest.TestCase):
         self.assertEqual(self.run_script().stdout, '')
 
     def test_session_and_cwd_are_separate(self):
-        self.run_script()
+        self.command('arm')
         other = self.cwd.parent / 'other-paper'
         other.mkdir()
         self.assertTrue(self.run_script(payload={**self.payload, 'session_id': 'session-b'}).stdout)
@@ -68,23 +113,23 @@ class ReminderTests(unittest.TestCase):
         self.command('arm', cwd=other)
         self.assertFalse(self.status()['active'])
         self.assertEqual(self.run_script().stdout, '')
-        self.assertEqual(len(list(self.root.glob('bestpaper-reminder-v1/*.json'))), 3)
+        self.assertEqual(len(list(self.root.glob('bestpaper-reminder-v2/*.json'))), 3)
 
     def test_cwd_change_cannot_autostart_another_project(self):
-        self.run_script()
+        self.command('arm')
         other = self.cwd.parent / 'unrelated-task'
         other.mkdir()
         payload = {**self.payload, 'cwd': str(other)}
         self.assertEqual(self.run_script(payload=payload).stdout, '')
         self.command('disarm')
         self.assertEqual(self.run_script(payload=payload).stdout, '')
-        self.assertEqual(len(list(self.root.glob('bestpaper-reminder-v1/*.json'))), 1)
+        self.assertEqual(len(list(self.root.glob('bestpaper-reminder-v2/*.json'))), 1)
 
     def test_new_prompt_from_another_cwd_pauses_session_only(self):
-        self.run_script()
+        self.command('arm')
         other = self.cwd.parent / 'new-project'
         other.mkdir()
-        self.run_script(payload={**self.payload, 'session_id': 'session-b'})
+        self.command('arm', session='session-b')
         payload = {**self.payload, 'cwd': str(other), 'hook_event_name': 'UserPromptSubmit'}
         result = self.run_script(payload=payload)
         self.assertTrue(result.stdout, '新目录中的用户消息也必须暂停当前会话旧授权')
@@ -95,10 +140,10 @@ class ReminderTests(unittest.TestCase):
         self.assertEqual(self.run_script(payload={**payload, 'hook_event_name': 'PostToolBatch'}).stdout, '')
 
     def test_session_end_from_another_cwd_pauses_existing_project(self):
-        self.run_script()
+        self.command('arm')
         other = self.cwd.parent / 'end-location'
         other.mkdir()
-        self.run_script(payload={**self.payload, 'session_id': 'session-b'})
+        self.command('arm', session='session-b')
         result = self.run_script(payload={**self.payload, 'cwd': str(other), 'hook_event_name': 'SessionEnd'})
         self.assertEqual(result.stdout, '')
         self.assertFalse(self.status()['active'])
@@ -106,7 +151,7 @@ class ReminderTests(unittest.TestCase):
         self.assertEqual(self.run_script().stdout, '')
 
     def test_explicit_new_project_arm_replaces_old_grant(self):
-        self.run_script()
+        self.command('arm')
         other = self.cwd.parent / 'next-paper'
         other.mkdir()
         self.command('arm', cwd=other)
@@ -117,7 +162,7 @@ class ReminderTests(unittest.TestCase):
         self.assertFalse(json.loads(self.command('status', cwd=other).stdout)['active'])
 
     def test_pause_message_carries_current_identity_for_rearm(self):
-        self.run_script()
+        self.command('arm')
         other = self.cwd.parent / 'after-compaction'
         other.mkdir()
         result = self.run_script(payload={**self.payload, 'cwd': str(other), 'hook_event_name': 'UserPromptSubmit'})
@@ -129,7 +174,7 @@ class ReminderTests(unittest.TestCase):
         result = self.command('arm', session='${CLAUDE_SESSION_ID}')
         self.assertEqual(result.stdout, '')
         self.assertTrue(result.stderr)
-        self.assertFalse((self.root / 'bestpaper-reminder-v1').exists())
+        self.assertFalse((self.root / 'bestpaper-reminder-v2').exists())
 
     def test_disarm_from_another_cwd_stops_all_current_session_projects(self):
         self.command('arm')
@@ -145,13 +190,15 @@ class ReminderTests(unittest.TestCase):
 
     def test_subagent_never_creates_state(self):
         self.assertEqual(self.run_script(payload={**self.payload, 'agent_id': 'worker-1'}).stdout, '')
-        self.assertFalse((self.root / 'bestpaper-reminder-v1').exists())
+        self.assertFalse((self.root / 'bestpaper-reminder-v2').exists())
 
     def test_disarm_persists_and_explicit_arm_resumes_without_reset(self):
-        self.run_script()
+        self.command('arm')
         self.command('disarm')
         self.assertFalse(self.status()['active'])
-        self.assertEqual(self.run_script(['--interval-seconds', '0.01']).stdout, '')
+        for _ in range(3):
+            self.assertEqual(self.run_script(['--interval-seconds', '0.01']).stdout, '')
+            self.assertFalse(self.status()['active'])
         self.command('arm')
         first = self.status()
         self.assertTrue(first['active'])
@@ -160,7 +207,7 @@ class ReminderTests(unittest.TestCase):
         self.assertEqual(self.run_script().stdout, '')
 
     def test_user_prompt_pauses_only_active_reminder(self):
-        self.run_script()
+        self.command('arm')
         payload = {**self.payload, 'hook_event_name': 'UserPromptSubmit'}
         result = self.run_script(payload=payload)
         context = json.loads(result.stdout)['hookSpecificOutput']
@@ -171,7 +218,7 @@ class ReminderTests(unittest.TestCase):
         self.assertEqual(self.run_script().stdout, '')
 
     def test_session_end_is_silent_and_stays_disarmed(self):
-        self.run_script()
+        self.command('arm')
         result = self.run_script(payload={**self.payload, 'hook_event_name': 'SessionEnd'})
         self.assertEqual(result.stdout, '')
         self.assertFalse(self.status()['active'])
@@ -182,11 +229,11 @@ class ReminderTests(unittest.TestCase):
             result = self.run_script(raw=raw)
             self.assertEqual(result.stdout, '')
             self.assertTrue(result.stderr)
-        self.assertFalse((self.root / 'bestpaper-reminder-v1').exists())
+        self.assertFalse((self.root / 'bestpaper-reminder-v2').exists())
 
     def test_corrupt_state_is_not_replaced_or_claimed_active(self):
         self.run_script()
-        state = next(self.root.glob('bestpaper-reminder-v1/*.json'))
+        state = next(self.root.glob('bestpaper-reminder-v2/*.json'))
         state.write_text('{broken', encoding='utf-8')
         result = self.run_script()
         self.assertEqual(result.stdout, '')
@@ -200,10 +247,10 @@ class ReminderTests(unittest.TestCase):
                     session = f'{stop}-{corrupt_current}'
                     old = self.root / session
                     old.mkdir()
-                    files_before = set(self.root.glob('bestpaper-reminder-v1/*.json'))
+                    files_before = set(self.root.glob('bestpaper-reminder-v2/*.json'))
                     self.command('arm', session=session, cwd=old)
                     self.command('arm', session=session)
-                    files = set(self.root.glob('bestpaper-reminder-v1/*.json')) - files_before
+                    files = set(self.root.glob('bestpaper-reminder-v2/*.json')) - files_before
                     current = next(p for p in files if json.loads(p.read_text(encoding='utf-8'))['active'])
                     previous = next(p for p in files if p != current)
                     corrupt, valid = (current, previous) if corrupt_current else (previous, current)
@@ -239,9 +286,9 @@ class ReminderTests(unittest.TestCase):
         result = self.run_script()
         self.assertEqual(result.stdout, '')
         self.assertTrue(result.stderr)
-        self.assertFalse((self.root / 'bestpaper-reminder-v1').exists())
+        self.assertFalse((self.root / 'bestpaper-reminder-v2').exists())
         self.prompt.write_text('restored', encoding='utf-8')
-        self.run_script()
+        self.command('arm')
         before = self.status()
         self.prompt.unlink()
         result = self.run_script(['--interval-seconds', '0.01'])

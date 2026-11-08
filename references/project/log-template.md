@@ -7,7 +7,9 @@ status: active  # active / waiting_for_author / paused / completed
 stage: revision  # planning / revision / audit / blind_review / substantively_converged / polish / delivery
 input_version: 实际文件或提交标识
 authorization: 本轮已授权范围；保留审批的对象
-reminder: 当前环境、已启用/未启用/已暂停、会话或automation标识
+automatic_loop: inactive  # inactive / active / paused / ended；不是普通任务status
+loop_scope: 自动循环的已授权范围与停止条件；单次任务不填写为active
+reminder: 仅循环active时启用；记录环境、实际状态及会话或automation标识
 ```
 
 ## 本轮目标
