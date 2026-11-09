@@ -60,6 +60,18 @@ For ambiguity, identify readings that are supported by the available context and
 
 Report separately: the actual contextual claim; whether the criticism establishes an error, an actual reading obstacle, an optional expression improvement, or insufficient evidence; and whether the proposed fix is correct and worth doing. Do not promote an optional rewrite into a mandatory logic repair. If reviewers agree, check whether they used the same unproved interpretation; agreement is not independent evidence. D01 is responsible for this check, not a new layer of audits.
 
+### 2.2 Precision, comprehension and value require separate judgments
+
+Before accepting an expression change, identify the passage's duty. A definition, proof or quantitative claim may need a probability relation; a mechanism explanation may need the actor's action, the information used and its consequence. Verbalizing a formula can remain obscure even with no symbols. Do not replace the reader's needed meaning with a formally exhaustive paraphrase.
+
+Check three outcomes separately: (1) the claim's truth, scope and necessary conditions; (2) what the target peer can directly understand at this location; (3) the supported contribution or implication the reader still sees. A formula-preservation check only supports the first. A clear sentence that overclaims fails; a defensible sentence that hides the mechanism or unjustifiably weakens the finding also fails its writing duty.
+
+Meaning preservation does not require every explanatory sentence to retain every true detail from an adjacent formal statement. Retain the necessary claim and its support at the right location; remove local repetition or choose a clearer representation. Do not add a disclaimer or another explanatory paragraph merely to rescue a bad sentence when the original can be rewritten directly. If genuine precision is hard to read, reorganize the explanation or separate the required steps rather than choose between truth and comprehension.
+
+For scope corrections, name the unsupported part and preserve the supported finding, coverage and significance. Correcting a universal claim does not justify turning a well-supported result into a trivial observation. Conversely, preserving value does not permit overclaiming. Judge the actual evidence and rhetorical duty, not a ban on negative words or a demand for stronger language.
+
+Use the existing affected-scope reader regression and strength check (R17/S39/S51), not another universal audit. The new reader first sees the new passage with its allowed preceding context, without the old wording or intended answer; record what they actually understood, including any implied guarantees or loss of the main insight. Then compare the diff and retained duties. Without a comparable baseline, report current understanding and preserved duties, not a measured before/after improvement. D01 must not approve a candidate solely because the mathematics, counts or references are unchanged.
+
 ## 3. Independence comes from different verification paths, not from more rounds
 
 - **Completion follows substantive acceptance**, as defined in `SKILL.md` under
