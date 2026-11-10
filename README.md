@@ -6,7 +6,7 @@ Improve a developed academic manuscript so its readers understand the research c
 
 ## Scope and execution
 
-The [audit router](references/audit/routing.md) preserves 81 detailed checkpoints within 26 specialist tasks, two judgment stages, and three operational check packages. These are a catalog, not 31 or 81 agents on every revision. Verify mechanical edits locally; use dependency-based regression for ordinary revisions; inspect applicable coverage at initial diagnosis, major restructuring, and submission readiness. Reuse requires a valid version and unchanged dependencies.
+The [audit router](references/audit/routing.md) preserves 82 detailed checkpoints within 26 specialist tasks, three judgment stages, and three operational check packages. These are a catalog, not 32 or 82 agents on every revision. Verify mechanical edits locally; use dependency-based regression for ordinary revisions; inspect applicable coverage at initial diagnosis, major restructuring, and submission readiness. Reuse requires a valid version and unchanged dependencies.
 
 Mathematical validity, nontrivial insight, whole-paper logic, and basic readability cannot substitute for one another. Coupled checks such as terminology necessity, consistency, first use, symbols, and density are assessed jointly with separate findings. Manuscript and reader outcomes matter more than scores, report counts, or green checklists.
 
