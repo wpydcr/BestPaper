@@ -329,7 +329,21 @@ Follow the inherited contribution-format preference maintained in writing-guide 
 For each real contribution, ask what the work establishes, how it establishes it, what was not known or possible before, and which reader judgment changes. These are questions, not four mandatory slots: a theoretical finding or explanation need not invent a separate artifact.
 
 Distinguish an existing component from the paper's contribution in showing why or how it applies. Do not describe repairing the manuscript's own earlier mistake as a research contribution. State the contribution directly, preserve its supported strength, and leave mechanism detail to the body. Check parallel presentation without forcing unlike contributions into identical sentences.
-### 3.9 Typesetting the introduction (Source B, generalized)
+### 3.9 Calibrate the introduction against award exemplars
+
+**What the introduction carries.** Background and what is at stake; what existing approaches do, one sentence each, crediting what they achieve; the gap they share; how serious and how broad the problem is; what this paper establishes, stated as results; the value that follows; a roadmap where the venue's exemplars use one. Measure the venue's award papers before writing: word count, share of words spent on the problem and on what existing approaches lack, paragraph duties. Keep the introduction inside that range.
+
+**What stays out.** Reasoning chains that explain why a claim holds; formal apparatus beyond what the reader needs to read the problem; tables; several sources stacked behind one point; a closing paragraph that summarizes the paper; any detail that a body section exists to explain. Point to that section instead.
+
+**Contributions** state the consequence and the section that establishes it. No "because", "so" or colon clause that gives the reason.
+
+**Two opposite failures.**
+- *Accumulation.* Each audit round answers a misreading by adding a reason, a source or a step to the introduction. Every local check passes, and the introduction slowly becomes a summary of the paper. After any round that touches the introduction, re-read it whole against the exemplar positioning, and count its words.
+- *Overcorrection.* After a "too much" critique, cutting the stakes, the breadth of the problem or the value along with the reasons. Cut only the class the critique named. Stakes, breadth and value are the introduction's job.
+
+Before adding any sentence to the introduction, classify it: problem, gap, finding, consequence, value (belongs here) or reason, source, detail (belongs in the body).
+
+### 3.10 Typesetting the introduction (Source B, generalized)
 
 **Applicability**: this section generalizes from papers that use the
 "bold-subheading bullet contribution list at the end of the introduction"

@@ -251,6 +251,20 @@ may carry both compatible duties.
    in the appendix, but **the body must state how this information constrains the
    conclusion**.
 
+### 3.6 Table layout and typesetting
+
+**Comparison tables follow the award-paper form** (e.g. functionality-comparison tables): one row per compared object, one column per attribute, cells hold a short word, a number or a symbol. Put examples and sources as citations after the row label, not in a prose row. Do not use full-width bold question rows, bold answers, or cells that wrap to four lines.
+
+**Binary cells use colored icons**: green check and red cross (`pifont` `\ding{51}`/`\ding{55}` with `xcolor`). Phrase every icon column so that a check means the desirable property; otherwise a green check marks a defect. A conditional value takes the icon plus a footnote marker.
+
+**Rows with multi-line cells get zebra shading** so row boundaries are visible (`\usepackage[table]{xcolor}`, `\rowcolors{2}{white}{<light gray>}`). Known traps:
+- `\addlinespace` between shaded rows breaks the bands; remove it.
+- A nested `tabular` used for a stacked header inherits the row colors; use `\shortstack`.
+- `@{}` at the column-spec edges makes the shading overhang the rules; drop `@{}` and take the width back from the `p` columns.
+- Put `\hiderowcolors` before a note row inside the table.
+
+**Accept a table only from the rendered page** at final size: no overfull box, no unintended wrapping in short cells, shading aligned with the rules.
+
 ---
 
 ## 4. The six core duties
